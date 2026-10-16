@@ -1,0 +1,7 @@
+# Every text file is LF on every platform. Tests read docs and page sources with
+# include_str and compare bytes, and schedule files must write back byte for byte, so a
+# Windows checkout must not turn line endings into CRLF.
+* text=auto eol=lf
+*.png binary
+*.icns binary
+*.ico binary

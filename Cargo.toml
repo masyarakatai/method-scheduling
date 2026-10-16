@@ -1,0 +1,15 @@
+[workspace]
+resolver = "2"
+# Crate names follow the product name, Method Schedule (decisions.md, entry 27).
+members = [
+    "crates/method-schedule-core",
+    "crates/method-schedule-format",
+    "crates/method-schedule-cli",
+    "crates/method-schedule-app",
+]
+
+[workspace.package]
+edition = "2021"
+# The one place the version lives: every crate inherits it.
+version = "0.1.0"
+license = "MIT OR Apache-2.0"

@@ -1,0 +1,43 @@
+# Secrets: never commit
+.env
+.env.*
+.mcp.json
+*.pem
+*.key
+id_rsa*
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Logs / scratch
+*.log
+
+# Rust
+/target/
+
+# Clean room: screenshots and recordings of other tools, and raw exports or fetched
+# pages from them, stay local and are never committed.
+/Screenshots/
+/imports/
+
+# Scratch schedules and scripts at the repo root (test files, ZTEST runs)
+/*.fountain
+/*.fdx
+/ZTEST*
+
+# Claude Code: only the project's skills and shared settings are versioned. The
+# trailing /* (not .claude/ itself) is what lets the two ! lines re-include.
+/.claude/*
+!/.claude/skills/
+!/.claude/settings.json
+
+# Timing data for the app harness (crates/method-schedule-app/harness/boot.js ?big)
+/crates/method-schedule-app/harness/big-view.json
+
+# Private working notes, kept in the private repository (decision 216)
+/HANDOFF.md
+/BORN-SECURE.md
+/docs/KICKOFF.md
+/docs/NAMING.md

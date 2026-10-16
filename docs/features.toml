@@ -1,0 +1,490 @@
+# Method Schedule's feature list: the single source for the feature section of README.md
+# and the feature list on the website (site/index.html).
+#
+# After editing, regenerate both:
+#
+#     python3 scripts/site.py
+#
+# CI runs `python3 scripts/site.py --check`, which fails when README.md or the site no
+# longer match this file. How it all fits together: docs/WEBSITE.md.
+#
+# Fields
+#   [[group]]    id, title. Groups appear in the order written here.
+#   [[feature]]  group    the id of a group above
+#                title    a few words, no trailing period
+#                text     one sentence, user-facing, ends with a period
+#                status   "have" (built) or "soon" (planned)
+#                ref      optional: parity rows ("BRK-07", the id column of
+#                         docs/parity/features.csv) and decisions ("D44", an entry of
+#                         docs/decisions.md), as a string or a list. A "have" feature
+#                         needs at least one ref, and every parity row it names must be
+#                         `have`: the list never claims something that isn't built.
+#
+# [project] repo is the source repository's URL. It is written into the site's links
+# (every <a href=... data-repo="path">) and the README's clone command, so moving the
+# repository is a one-line edit here plus a regenerate.
+#
+# Write for someone who schedules films, not for someone who reads the code. No em
+# dashes, no vendor or product names (the clean-room statement and the FAQ are the only
+# places those go). Inline `code` is allowed; nothing else is markup.
+
+[project]
+repo = "https://github.com/method-production-suite/method-scheduling"
+
+[[group]]
+id = "breakdown"
+title = "Breakdown"
+
+[[group]]
+id = "board"
+title = "Board"
+
+[[group]]
+id = "dood"
+title = "Day out of days"
+
+[[group]]
+id = "calendar"
+title = "Calendar and events"
+
+[[group]]
+id = "reports"
+title = "Reports and exports"
+
+[[group]]
+id = "files"
+title = "Files and safety"
+
+[[group]]
+id = "keys"
+title = "Keyboard and command line"
+
+[[group]]
+id = "beyond"
+title = "Beyond the usual stripboard"
+
+# ----------------------------------------------------------------------------- breakdown
+
+[[feature]]
+group = "breakdown"
+title = "Script import"
+text = "Bring in a Fountain or `.fdx` script: one sheet per scene, its heading split into I/E, set and time of day, its length in eighths and its speaking characters as cast."
+status = "have"
+ref = ["IMP-01", "IMP-03", "IMP-05", "IMP-06", "IMP-07", "IMP-08", "D8", "D12"]
+
+[[feature]]
+group = "breakdown"
+title = "Breakdown sheets"
+text = "Scenes, I/E, set, time of day, pages, shoot time, synopsis, location and the rest of the header, with the values other sheets use offered as you type."
+status = "have"
+ref = ["BRK-01", "BRK-02", "BRK-05", "BRK-08", "BRK-09", "BRK-10", "BRK-17", "D17"]
+
+[[feature]]
+group = "breakdown"
+title = "Elements by category"
+text = "Tag cast, props, vehicles and the rest by typing under a category or in one quick-add field, and cut, copy and paste them between sheets."
+status = "have"
+ref = ["BRK-11", "BRK-12", "BRK-13", "BRK-14", "BRK-18", "ELM-01", "ELM-02"]
+
+[[feature]]
+group = "breakdown"
+title = "Element manager"
+text = "Board IDs, notes, custom properties, images and linked elements, with merge, move and renumber, and each element's scenes, pages, work days and dates."
+status = "have"
+ref = ["ELM-07", "ELM-10", "ELM-11", "ELM-12", "ELM-13", "ELM-14", "ELM-15", "ELM-16", "ELM-17", "ELM-18", "ELM-19", "ELM-20", "ELM-21"]
+
+[[feature]]
+group = "breakdown"
+title = "Category settings"
+text = "Automatic board IDs, default holds and drops, daily quantities, and leaving a category or a single element off the board."
+status = "have"
+ref = ["ELM-03", "ELM-04", "ELM-05", "ELM-06", "ELM-08", "ELM-22"]
+
+[[feature]]
+group = "breakdown"
+title = "Quantities per scene"
+text = "Count background, stand-ins or animals scene by scene and see each day's total."
+status = "have"
+ref = ["BRK-15", "ELM-06"]
+
+[[feature]]
+group = "breakdown"
+title = "Split and merge sheets"
+text = "Duplicate a sheet to split a scene, or merge several sheets into one."
+status = "have"
+ref = ["BRK-06", "BRK-07", "D35", "D37"]
+
+[[feature]]
+group = "breakdown"
+title = "Breakdown designer"
+text = "Choose the order, visibility and width of the header fields, kept in the schedule."
+status = "have"
+ref = ["BRK-03", "BRK-19"]
+
+[[feature]]
+group = "breakdown"
+title = "Images on scenes and elements"
+text = "Attach pictures to sheets and elements and see them beside the board; the files stay where you keep them."
+status = "have"
+ref = ["BRK-16", "ELM-14", "IMP-09", "SPL-04"]
+
+# ----------------------------------------------------------------------------- board
+
+[[feature]]
+group = "board"
+title = "Stripboard by drag or keys"
+text = "Drag strips, or move them with the keyboard, within a sub-board, between sub-boards and into the Boneyard, and cut, copy and paste them."
+status = "have"
+ref = ["BRD-04", "BRD-05", "BRD-06", "BRD-07", "BRD-19", "D29"]
+
+[[feature]]
+group = "board"
+title = "Boards and sub-boards"
+text = "Several boards for different orders, each with sub-boards for units or blocks and a Boneyard of unscheduled strips."
+status = "have"
+ref = ["BRD-01", "BRD-02", "BRD-03", "D31"]
+
+[[feature]]
+group = "board"
+title = "Day breaks"
+text = "Insert them by hand or break the days by pages, shoot time or screen time; each shows its day, date, pages and time."
+status = "have"
+ref = ["DBK-01", "DBK-04", "DBK-05", "DBK-06", "DBK-07", "DBK-08", "DBK-09", "DBK-11"]
+
+[[feature]]
+group = "board"
+title = "Banners"
+text = "Lines across the board for moves, meals and notes, with a duration that counts in the day and a color, size and alignment of their own."
+status = "have"
+ref = ["BRD-10", "BRD-11", "DBK-10"]
+
+[[feature]]
+group = "board"
+title = "Strip designer"
+text = "Strip and text colors by I/E and time of day, up to four lines a strip with merged cells, and a layout library shared with the one-line report."
+status = "have"
+ref = ["BRD-13", "BRD-14", "BRD-15", "BRD-16", "BRD-17", "BRD-18", "BRD-21", "DBK-02", "DBK-03"]
+
+[[feature]]
+group = "board"
+title = "Sort and find"
+text = "Sort strips by up to three fields, and find strips with a highlight you step through."
+status = "have"
+ref = ["BRD-09", "BRD-12"]
+
+[[feature]]
+group = "board"
+title = "Split screen"
+text = "Put the breakdown, another board, the calendar or the scene's images beside the board, or the images beside the breakdown, and back to one view in a click."
+status = "have"
+ref = ["SPL-01", "SPL-02", "SPL-03", "SPL-04", "SPL-07", "SPL-08", "D80"]
+
+[[feature]]
+group = "board"
+title = "Print the board"
+text = "Print all or selected strips, with or without the Boneyard, or save the board as a PDF."
+status = "have"
+ref = ["BRD-20"]
+
+# ----------------------------------------------------------------------------- dood
+
+[[feature]]
+group = "dood"
+title = "The full grid"
+text = "Every element's start, work, hold, drop and finish, day by day, for each sub-board and category, with a summary."
+status = "have"
+ref = ["DOD-01", "DOD-02", "DOD-08", "DOD-09", "DOD-11", "D20"]
+
+[[feature]]
+group = "dood"
+title = "Counting rules that hold up"
+text = "Holds between work days, one drop over the longest gap, travel, fittings and rehearsals as worked days, and holidays and company moves only inside a held span."
+status = "have"
+ref = ["DOD-03", "DOD-04", "DOD-05", "DOD-06", "DOD-07", "D10", "D11"]
+
+[[feature]]
+group = "dood"
+title = "Explain this count"
+text = "Ask why an element's counts are what they are and get the answer date by date."
+status = "have"
+ref = ["DOD-17", "D25", "D26"]
+
+[[feature]]
+group = "dood"
+title = "Your codes, sorts and views"
+text = "Your own code letters, multi-key sorts, a vertical view, a view without holds, and hold and drop switches on every row."
+status = "have"
+ref = ["DOD-10", "DOD-12", "DOD-13", "DOD-14", "DOD-16", "DOD-18", "BYD-12"]
+
+[[feature]]
+group = "dood"
+title = "Header fields as categories"
+text = "Read-only rows for each set, location, unit, episode, I/E, time of day, script day and sequence value with their sheets, pages, work days, start and finish."
+status = "have"
+ref = ["ELM-09"]
+
+# ----------------------------------------------------------------------------- calendar
+
+[[feature]]
+group = "calendar"
+title = "A calendar per sub-board"
+text = "Start date, working week, off days, holidays and company travel days, with shoot days moving around them on their own."
+status = "have"
+ref = ["CAL-01", "CAL-02", "CAL-03", "DOD-15", "D21"]
+
+[[feature]]
+group = "calendar"
+title = "Month and weeks views"
+text = "One month or every week of the schedule in one list, with strips, banners, pages and length on each day, switches for what each day shows, an actions menu on any date, and a filter by category and element."
+status = "have"
+ref = ["CAL-04", "CAL-05", "CAL-06", "CAL-07", "CAL-08", "CAL-11", "CAL-09", "CAL-12", "CAL-13", "CAL-14", "CAL-15"]
+
+[[feature]]
+group = "calendar"
+title = "Events"
+text = "Travel, fittings, rehearsals, unavailable days, camera tests and post-production work over a date range, in one of ten colors, made from an element or a sheet and dragged on the calendar."
+status = "have"
+ref = ["EVT-01", "EVT-02", "EVT-03", "EVT-04", "EVT-08", "EVT-09"]
+
+[[feature]]
+group = "calendar"
+title = "Conflicts"
+text = "An element booked on one date in two sub-boards, or an event on a work day, is marked on the strips, the calendar, the day out of days and the elements table."
+status = "have"
+ref = ["EVT-05", "EVT-06", "EVT-07", "D28", "D43"]
+
+[[feature]]
+group = "calendar"
+title = "Red flags"
+text = "Flag several elements on several dates at once, with standard types that match the event kinds, see every flag in one table and every place the schedule clashes with them."
+status = "have"
+ref = ["RFL-01", "RFL-02", "RFL-03", "RFL-04", "RFL-05", "RFL-06", "D33", "D36", "D113", "D114"]
+
+[[feature]]
+group = "calendar"
+title = "Prep and wrap dates"
+text = "Record each sub-board's prep start and wrap end for the budget."
+status = "have"
+ref = ["CAL-10"]
+
+# ----------------------------------------------------------------------------- reports
+
+[[feature]]
+group = "reports"
+title = "The reports a production runs on"
+text = "One-line, shooting schedule, day out of days and its summary, element list, breakdown and calendar."
+status = "have"
+ref = ["RPT-01", "RPT-02", "RPT-03", "RPT-04", "RPT-05", "RPT-07", "D23"]
+
+[[feature]]
+group = "reports"
+title = "More reports"
+text = "Breakdown by day, element detail, daily category totals, the vertical one-line with its cast grid, conflicts, red flags and a multi-unit one-line merged by date."
+status = "have"
+ref = ["RPT-06", "RPT-08", "RPT-09", "RPT-10", "RPT-11", "RPT-12", "RPT-20"]
+
+[[feature]]
+group = "reports"
+title = "Report designer"
+text = "Columns on up to four lines with merged cells, header layouts with your production info, date ranges and named copies, all kept in the schedule."
+status = "have"
+ref = ["RPT-13", "RPT-14", "RPT-15", "RPT-16", "RPT-17", "RPT-18", "RPT-19", "D59", "D90"]
+
+[[feature]]
+group = "reports"
+title = "PDF"
+text = "Print any report or save it as a PDF."
+status = "have"
+ref = ["EXP-01"]
+
+[[feature]]
+group = "reports"
+title = "Excel and CSV"
+text = "One-line, day out of days, elements, breakdown, element detail and the whole board as workbooks whose totals are working formulas, or as CSV."
+status = "have"
+ref = ["EXP-02", "EXP-03", "EXP-09", "EXP-10", "EXP-11", "D14"]
+
+# ----------------------------------------------------------------------------- files
+
+[[feature]]
+group = "files"
+title = "Open file format"
+text = "Schedules are `.mtsc` files: plain, documented JSON that diffs cleanly and that any tool can read."
+status = "have"
+ref = ["EXP-07", "D13"]
+
+[[feature]]
+group = "files"
+title = "Never lose work"
+text = "Autosave into the file, a recovery copy for a schedule not saved yet, rolling backups and a restore after a crash."
+status = "have"
+ref = ["SAV-01", "SAV-02", "SAV-05", "BYD-10", "D16", "D18"]
+
+[[feature]]
+group = "files"
+title = "Undo"
+text = "Every change is one step, up to 200 of them."
+status = "have"
+ref = ["FIL-09", "D15"]
+
+[[feature]]
+group = "files"
+title = "Templates and layout files"
+text = "Start a schedule from a template of your categories, elements, boards and layouts, and share layouts as files."
+status = "have"
+ref = ["FIL-04", "FIL-05", "D77", "D85"]
+
+[[feature]]
+group = "files"
+title = "Several windows"
+text = "One schedule per window, each with its own undo, autosave and recovery, and a list of recent files."
+status = "have"
+ref = ["FIL-03", "FIL-08", "D86"]
+
+[[feature]]
+group = "files"
+title = "What changed and merge"
+text = "See every change between two schedules in plain words, and merge two copies that changed apart, with real clashes listed for you to pick."
+status = "have"
+ref = ["D25", "D26"]
+
+# ----------------------------------------------------------------------------- keys
+
+[[feature]]
+group = "keys"
+title = "Keyboard first"
+text = "Move strips, insert day breaks and banners, step through sheets and switch tabs from the keyboard; a shortcut sheet lists every key."
+status = "have"
+ref = ["KEY-01", "KEY-02", "KEY-03", "KEY-04", "KEY-05", "D79"]
+
+[[feature]]
+group = "keys"
+title = "Find and replace"
+text = "Search the text fields, replace in the results, or build a search from field, comparison and value rows."
+status = "have"
+ref = ["SPL-05", "SPL-06", "D34", "D82"]
+
+[[feature]]
+group = "keys"
+title = "Scriptable command line"
+text = "`method-schedule` imports scripts, sets day breaks and writes the reports as text, CSV or Excel, with no window and no network."
+status = "have"
+ref = ["D13", "D14", "D23"]
+
+[[feature]]
+group = "keys"
+title = "Coding agents"
+text = "An MCP server lets coding agents read and edit schedules through the same engine, only in the folders you allow."
+status = "have"
+ref = ["D22"]
+
+[[feature]]
+group = "keys"
+title = "Git merge driver"
+text = "Keep schedules in git and let `method-schedule merge-driver` combine two people's edits, flagging only real conflicts."
+status = "have"
+ref = ["D25"]
+
+# ----------------------------------------------------------------------------- beyond
+
+[[feature]]
+group = "beyond"
+title = "Budget exchange file"
+text = "Shoot days and every element's day counts as one small, documented file a budgeting app can read."
+status = "have"
+ref = ["EXP-06"]
+
+[[feature]]
+group = "beyond"
+title = "Production tags from the script"
+text = "Bring in the props, wardrobe and other tags a tagged script already carries as elements."
+status = "have"
+ref = ["IMP-04", "D68"]
+
+[[feature]]
+group = "beyond"
+title = "Script revisions"
+text = "Merge a revised draft into the schedule: scenes keep their tags and places, new ones go to the Boneyard and cut ones are marked omitted."
+status = "have"
+ref = ["BYD-01", "D69"]
+
+[[feature]]
+group = "beyond"
+title = "Day timeline"
+text = "Each shoot day from its call time, strip by strip, with warnings for a long day or a scene past sunset, and what runs past wrap moved to the next day in one step."
+status = "have"
+ref = ["BYD-04", "D71", "D192"]
+
+[[feature]]
+group = "beyond"
+title = "Sunrise and sunset"
+text = "Give each location its coordinates and see sunrise and sunset for every dated shoot day, with the US and Canada or EU daylight saving dates."
+status = "have"
+ref = ["BYD-08", "D72", "D193"]
+
+[[feature]]
+group = "beyond"
+title = "Rest checks"
+text = "Set a turnaround per category and get a warning wherever a rest between wrap and the next call is too short."
+status = "have"
+ref = ["BYD-09", "D73"]
+
+[[feature]]
+group = "beyond"
+title = "Schedule locks and drift"
+text = "Lock the schedule as sent, then see each actor's work days added, dropped and moved since."
+status = "have"
+ref = ["BYD-05", "D74"]
+
+[[feature]]
+group = "beyond"
+title = "Strip order suggestion"
+text = "A suggested order that groups by location, set and cast around your pinned strips and red flags, with the before and after counts to compare."
+status = "have"
+ref = ["BYD-06", "D75"]
+
+[[feature]]
+group = "beyond"
+title = "Call sheet data"
+text = "A shoot day's call sheet data as JSON or CSV, ready for whatever lays out your call sheets."
+status = "have"
+ref = ["BYD-02", "D70"]
+
+[[feature]]
+group = "beyond"
+title = "A printed call sheet"
+text = "A shoot day's call sheet printed or saved as a PDF: call and wrap, sunrise and sunset, the scenes with their times, the cast on set, other elements and notes."
+status = "have"
+ref = ["BYD-02", "D207"]
+
+# ----------------------------------------------------------------------------- soon
+
+[[feature]]
+group = "files"
+title = "Signed Mac app with updates"
+text = "A downloadable Mac app, signed and notarized by Apple, that keeps itself up to date."
+status = "soon"
+
+[[feature]]
+group = "files"
+title = "Windows and Linux, tested"
+text = "Both build from the same code today; printing, keys and file types still need a hands-on check."
+status = "soon"
+
+[[feature]]
+group = "beyond"
+title = "Day counts into Method Budget"
+text = "Method Budget reading the exchange file, so shoot days and cast days arrive as the budget's globals."
+status = "soon"
+
+[[feature]]
+group = "beyond"
+title = "Try it in your browser"
+text = "The app with an invented schedule, running in the browser with nothing to install."
+status = "soon"
+
+[[feature]]
+group = "beyond"
+title = "Daylight saving per location"
+text = "Sunrise, sunset and call times that follow each location's clock changes."
+status = "soon"

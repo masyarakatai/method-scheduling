@@ -1,0 +1,60 @@
+name: Bug report
+description: Something is wrong, a count doesn't add up, or the app crashed.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Please never attach a real schedule or script: an invented one that shows the problem is always enough (`method-schedule sample` makes one).
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what you got instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Make a sample schedule with `method-schedule sample test.mtsc --sheets 40`
+        2. Move scene 12 to day 3
+        3. The day out of days shows ...
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Help > About Method Schedule, `method-schedule --version`, or the commit you built.
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Computer
+      options:
+        - macOS
+        - Windows
+        - Linux
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where
+      options:
+        - Day out of days or other counts
+        - Breakdown or elements
+        - Board, strips or day breaks
+        - Calendar, events or conflicts
+        - Importing a script
+        - Reports, PDF or export
+        - Saving, autosave or recovery
+        - Command line or MCP server
+        - Something else
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else
+      description: Screenshots of invented schedules, error messages, or a small invented file that shows the problem.

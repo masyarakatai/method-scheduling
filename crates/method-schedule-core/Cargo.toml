@@ -1,0 +1,15 @@
+[package]
+name = "method-schedule-core"
+description = "Scheduling engine: breakdown, boards, day breaks, calendar, day out of days"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+# Zero dependencies, on purpose (decisions.md, entry 3).
+[dependencies]
+
+# Random schedules and file mutations for other crates' property and fuzz tests, turned
+# on only as a dev-dependency (decision 172). Adds nothing to a normal build.
+[features]
+testgen = []

@@ -1,0 +1,93 @@
+{
+  "productName": "Method Schedule",
+  "identifier": "com.methodschedule.desktop",
+  "build": {
+    "frontendDist": "ui"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "label": "main",
+        "title": "Method Schedule",
+        "width": 1180,
+        "height": 800,
+        "minWidth": 760,
+        "minHeight": 520
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src ipc: http://ipc.localhost; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'",
+      "freezePrototype": true,
+      "capabilities": [
+        "main"
+      ]
+    }
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDQ2MDQyOERCNkQzOENFNzYKUldSMnpqaHQyeWdFUm1XclZUeEhUbk1IU1RlSXFmNGtNUlpjamJEZm51OTNEcmMybUk4TU8rekMK",
+      "endpoints": [
+        "https://github.com/method-production-suite/method-scheduling/releases/latest/download/latest.json"
+      ]
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "publisher": "Method Schedule contributors",
+    "copyright": "Copyright (c) 2026 Method Production Suite Team and the Method Schedule contributors",
+    "category": "Productivity",
+    "shortDescription": "Film and TV scheduling",
+    "longDescription": "An open-source film and TV scheduling app: stripboard, breakdown, day out of days and calendar. Schedules are plain .mtsc files on your disk.",
+    "license": "MIT OR Apache-2.0",
+    "homepage": "https://methodschedule.com",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "fileAssociations": [
+      {
+        "ext": [
+          "mtsc"
+        ],
+        "name": "Method Schedule schedule",
+        "description": "Method Schedule schedule",
+        "role": "Editor",
+        "rank": "Owner",
+        "mimeType": "application/vnd.method-schedule+json",
+        "exportedType": {
+          "identifier": "com.methodschedule.mtsc",
+          "conformsTo": [
+            "public.json",
+            "public.data"
+          ]
+        }
+      },
+      {
+        "ext": [
+          "mtst"
+        ],
+        "name": "Method Schedule template",
+        "description": "Method Schedule template",
+        "role": "Editor",
+        "rank": "Owner",
+        "mimeType": "application/vnd.method-schedule-template+json",
+        "exportedType": {
+          "identifier": "com.methodschedule.mtst",
+          "conformsTo": [
+            "public.json",
+            "public.data"
+          ]
+        }
+      }
+    ],
+    "macOS": {
+      "minimumSystemVersion": "11.0",
+      "signingIdentity": "-"
+    }
+  }
+}

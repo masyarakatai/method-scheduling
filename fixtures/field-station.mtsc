@@ -1,0 +1,637 @@
+{
+  "format": "method-schedule",
+  "version": 0,
+  "schedule": {
+    "title": "Field Station",
+    "production": {
+      "company": "Ridgeline Pictures",
+      "director": "Ines Varga",
+      "producer": "Tom Achebe",
+      "script_date": "2027-03-01"
+    },
+    "next_id": 86,
+    "categories": [
+      {
+        "id": 1,
+        "name": "Cast",
+        "auto_board_id": true,
+        "properties": [
+          "Full name",
+          "Address",
+          "Phone",
+          "Agent",
+          "Agent phone",
+          "Rate",
+          "Rate per",
+          "Deal notes"
+        ],
+        "multi_line": [
+          "Address",
+          "Deal notes"
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Background",
+        "daily_quantity": true
+      },
+      {
+        "id": 5,
+        "name": "Stand-ins",
+        "daily_quantity": true
+      },
+      {
+        "id": 6,
+        "name": "Stunts",
+        "auto_board_id": true
+      },
+      {
+        "id": 7,
+        "name": "Hand props"
+      },
+      {
+        "id": 8,
+        "name": "Set dressing"
+      },
+      {
+        "id": 9,
+        "name": "Wardrobe"
+      },
+      {
+        "id": 10,
+        "name": "Hair and makeup"
+      },
+      {
+        "id": 11,
+        "name": "Picture vehicles"
+      },
+      {
+        "id": 12,
+        "name": "Animals",
+        "daily_quantity": true
+      },
+      {
+        "id": 13,
+        "name": "Practical effects"
+      },
+      {
+        "id": 14,
+        "name": "Visual effects"
+      },
+      {
+        "id": 15,
+        "name": "Camera"
+      },
+      {
+        "id": 16,
+        "name": "Grip and electric"
+      },
+      {
+        "id": 17,
+        "name": "Sound and music"
+      },
+      {
+        "id": 18,
+        "name": "Special equipment"
+      },
+      {
+        "id": 19,
+        "name": "Extra crew",
+        "daily_quantity": true
+      },
+      {
+        "id": 20,
+        "name": "Safety"
+      },
+      {
+        "id": 21,
+        "name": "Other"
+      }
+    ],
+    "red_flag_types": [
+      {
+        "id": 22,
+        "name": "Travel",
+        "builtin": "travel"
+      },
+      {
+        "id": 23,
+        "name": "Fitting",
+        "builtin": "fitting"
+      },
+      {
+        "id": 24,
+        "name": "Rehearsal",
+        "builtin": "rehearsal"
+      },
+      {
+        "id": 25,
+        "name": "Unavailable",
+        "builtin": "unavailable"
+      },
+      {
+        "id": 26,
+        "name": "Camera test",
+        "builtin": "camera_test"
+      },
+      {
+        "id": 27,
+        "name": "Post-production",
+        "builtin": "post_production"
+      },
+      {
+        "id": 28,
+        "name": "Visual effects",
+        "builtin": "visual_effects"
+      },
+      {
+        "id": 29,
+        "name": "Dubbing",
+        "builtin": "dubbing"
+      },
+      {
+        "id": 30,
+        "name": "Sync sound",
+        "builtin": "sync_sound"
+      },
+      {
+        "id": 31,
+        "name": "Music recording",
+        "builtin": "music_recording"
+      },
+      {
+        "id": 32,
+        "name": "Picture editing",
+        "builtin": "picture_editing"
+      },
+      {
+        "id": 33,
+        "name": "Sound editing",
+        "builtin": "sound_editing"
+      },
+      {
+        "id": 34,
+        "name": "Sound mixing",
+        "builtin": "sound_mixing"
+      },
+      {
+        "id": 35,
+        "name": "Titles and graphics",
+        "builtin": "titles_graphics"
+      },
+      {
+        "id": 36,
+        "name": "Trailer",
+        "builtin": "trailer"
+      },
+      {
+        "id": 37,
+        "name": "Color correction",
+        "builtin": "color_correction"
+      }
+    ],
+    "elements": [
+      {
+        "id": 40,
+        "category": 1,
+        "name": "DELACROIX",
+        "board_id": "1",
+        "rules": {
+          "holds": true,
+          "min_drop_gap": 0
+        }
+      },
+      {
+        "id": 41,
+        "category": 1,
+        "name": "MARA",
+        "board_id": "2",
+        "rules": {
+          "holds": true,
+          "min_drop_gap": 0
+        }
+      },
+      {
+        "id": 44,
+        "category": 1,
+        "name": "TEO",
+        "board_id": "3",
+        "rules": {
+          "holds": true,
+          "min_drop_gap": 0
+        }
+      },
+      {
+        "id": 47,
+        "category": 1,
+        "name": "IVERSEN",
+        "board_id": "4",
+        "rules": {
+          "holds": true,
+          "min_drop_gap": 0
+        }
+      },
+      {
+        "id": 64,
+        "category": 7,
+        "name": "PAPER MAP"
+      },
+      {
+        "id": 65,
+        "category": 7,
+        "name": "FIELD PACKS"
+      },
+      {
+        "id": 66,
+        "category": 7,
+        "name": "HAND RADIO"
+      },
+      {
+        "id": 67,
+        "category": 7,
+        "name": "TORCH"
+      },
+      {
+        "id": 68,
+        "category": 7,
+        "name": "HEADLAMPS"
+      },
+      {
+        "id": 69,
+        "category": 7,
+        "name": "TEA MUGS"
+      },
+      {
+        "id": 70,
+        "category": 7,
+        "name": "NOTEBOOK"
+      },
+      {
+        "id": 71,
+        "category": 7,
+        "name": "KEY RING"
+      },
+      {
+        "id": 72,
+        "category": 8,
+        "name": "STATION RADIO SET"
+      },
+      {
+        "id": 73,
+        "category": 8,
+        "name": "CAMP STOVE"
+      },
+      {
+        "id": 74,
+        "category": 8,
+        "name": "GENERATOR"
+      },
+      {
+        "id": 75,
+        "category": 8,
+        "name": "MAST LADDER"
+      },
+      {
+        "id": 76,
+        "category": 9,
+        "name": "WEATHER COATS"
+      },
+      {
+        "id": 77,
+        "category": 13,
+        "name": "WIND"
+      },
+      {
+        "id": 78,
+        "category": 13,
+        "name": "RAIN"
+      }
+    ],
+    "sheets": [
+      {
+        "id": 38,
+        "scenes": "1",
+        "int_ext": "EXT",
+        "set": "RIDGE ROAD",
+        "time_of_day": "DAY",
+        "eighths": 7,
+        "shoot_minutes": 60,
+        "location": "Hollins Ridge fire road",
+        "elements": [
+          40,
+          41,
+          64,
+          65,
+          77
+        ]
+      },
+      {
+        "id": 42,
+        "scenes": "2",
+        "int_ext": "EXT",
+        "set": "FIELD STATION",
+        "time_of_day": "DAY",
+        "eighths": 15,
+        "shoot_minutes": 120,
+        "location": "Cold Spring field station",
+        "elements": [
+          44,
+          40,
+          41,
+          65,
+          66,
+          74,
+          76,
+          77,
+          78
+        ]
+      },
+      {
+        "id": 45,
+        "scenes": "3",
+        "int_ext": "INT",
+        "set": "FIELD STATION",
+        "time_of_day": "DAY",
+        "eighths": 7,
+        "shoot_minutes": 60,
+        "location": "Cold Spring field station",
+        "elements": [
+          40,
+          47,
+          41,
+          44,
+          64,
+          69,
+          72
+        ]
+      },
+      {
+        "id": 48,
+        "scenes": "4",
+        "int_ext": "EXT",
+        "set": "RADIO MAST",
+        "time_of_day": "DUSK",
+        "eighths": 11,
+        "shoot_minutes": 90,
+        "location": "Cold Spring field station",
+        "elements": [
+          40,
+          41,
+          64,
+          66,
+          75,
+          77
+        ]
+      },
+      {
+        "id": 50,
+        "scenes": "5",
+        "int_ext": "INT",
+        "set": "FIELD STATION",
+        "time_of_day": "EVENING",
+        "eighths": 7,
+        "shoot_minutes": 60,
+        "location": "Cold Spring field station",
+        "elements": [
+          40,
+          44,
+          41,
+          66,
+          72,
+          73
+        ]
+      },
+      {
+        "id": 52,
+        "scenes": "6",
+        "int_ext": "EXT",
+        "set": "RIDGE",
+        "time_of_day": "NIGHT",
+        "eighths": 8,
+        "shoot_minutes": 60,
+        "location": "Hollins Ridge fire road",
+        "elements": [
+          40,
+          64,
+          67,
+          77
+        ]
+      },
+      {
+        "id": 54,
+        "scenes": "7",
+        "int_ext": "INT",
+        "set": "FIELD STATION",
+        "time_of_day": "LATER",
+        "eighths": 7,
+        "shoot_minutes": 60,
+        "location": "Cold Spring field station",
+        "elements": [
+          47,
+          40,
+          44,
+          64,
+          72
+        ]
+      },
+      {
+        "id": 56,
+        "scenes": "8",
+        "int_ext": "EXT",
+        "set": "FIELD STATION",
+        "time_of_day": "NIGHT",
+        "eighths": 11,
+        "shoot_minutes": 90,
+        "location": "Cold Spring field station",
+        "elements": [
+          41,
+          44,
+          40,
+          64,
+          68,
+          74,
+          76,
+          77
+        ]
+      },
+      {
+        "id": 58,
+        "scenes": "9",
+        "int_ext": "EXT",
+        "set": "LOWER STATION",
+        "time_of_day": "NIGHT",
+        "eighths": 6,
+        "shoot_minutes": 60,
+        "location": "Cold Spring field station",
+        "elements": [
+          44,
+          66,
+          68,
+          69,
+          70,
+          71,
+          77
+        ]
+      },
+      {
+        "id": 60,
+        "scenes": "10",
+        "int_ext": "INT",
+        "set": "FIELD STATION",
+        "time_of_day": "NIGHT",
+        "eighths": 13,
+        "shoot_minutes": 120,
+        "location": "Cold Spring field station",
+        "elements": [
+          41,
+          40,
+          64,
+          69,
+          72,
+          74
+        ]
+      },
+      {
+        "id": 62,
+        "scenes": "11",
+        "int_ext": "INT",
+        "set": "FIELD STATION",
+        "time_of_day": "DAWN",
+        "eighths": 7,
+        "shoot_minutes": 60,
+        "location": "Cold Spring field station",
+        "elements": [
+          40,
+          41,
+          64,
+          72
+        ]
+      }
+    ],
+    "boards": [
+      {
+        "id": 2,
+        "name": "Shooting Order",
+        "sub_boards": [
+          {
+            "id": 3,
+            "name": "Main",
+            "start": "2027-05-03",
+            "strips": [
+              {
+                "kind": "sheet",
+                "id": 39,
+                "sheet": 38
+              },
+              {
+                "kind": "banner",
+                "id": 79,
+                "text": "Company move to the station",
+                "minutes": 30,
+                "bold": true
+              },
+              {
+                "kind": "sheet",
+                "id": 43,
+                "sheet": 42
+              },
+              {
+                "kind": "sheet",
+                "id": 49,
+                "sheet": 48
+              },
+              {
+                "kind": "day_break",
+                "id": 80
+              },
+              {
+                "kind": "sheet",
+                "id": 46,
+                "sheet": 45
+              },
+              {
+                "kind": "sheet",
+                "id": 51,
+                "sheet": 50
+              },
+              {
+                "kind": "banner",
+                "id": 81,
+                "text": "Lunch",
+                "minutes": 60,
+                "bold": true
+              },
+              {
+                "kind": "sheet",
+                "id": 55,
+                "sheet": 54
+              },
+              {
+                "kind": "sheet",
+                "id": 63,
+                "sheet": 62
+              },
+              {
+                "kind": "day_break",
+                "id": 82
+              },
+              {
+                "kind": "sheet",
+                "id": 61,
+                "sheet": 60
+              },
+              {
+                "kind": "sheet",
+                "id": 57,
+                "sheet": 56
+              },
+              {
+                "kind": "day_break",
+                "id": 83
+              },
+              {
+                "kind": "sheet",
+                "id": 59,
+                "sheet": 58
+              },
+              {
+                "kind": "banner",
+                "id": 84,
+                "text": "Company move to the ridge",
+                "minutes": 45,
+                "bold": true
+              },
+              {
+                "kind": "sheet",
+                "id": 53,
+                "sheet": 52
+              },
+              {
+                "kind": "day_break",
+                "id": 85
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "plan": {
+      "locations": [
+        {
+          "name": "Hollins Ridge fire road",
+          "latitude_microdeg": 46812000,
+          "longitude_microdeg": -121532000,
+          "utc_offset_minutes": -480,
+          "daylight_saving": "us_canada"
+        },
+        {
+          "name": "Cold Spring field station",
+          "latitude_microdeg": 46790000,
+          "longitude_microdeg": -121498000,
+          "utc_offset_minutes": -480,
+          "daylight_saving": "us_canada"
+        }
+      ]
+    }
+  }
+}

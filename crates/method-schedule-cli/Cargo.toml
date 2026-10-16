@@ -1,0 +1,17 @@
+[package]
+name = "method-schedule-cli"
+description = "Scheduling command line"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[[bin]]
+name = "method-schedule"
+path = "src/main.rs"
+
+[dependencies]
+method-schedule-core = { path = "../method-schedule-core" }
+method-schedule-format = { path = "../method-schedule-format" }
+# For `method-schedule mcp` (docs/MCP.md): the version method-schedule-format pins, so no new crates.
+serde_json = "=1.0.151"

@@ -1,0 +1,28 @@
+# Builds and tests on macOS and Windows as well as Linux. Weekly and on demand only:
+# on a private repository macOS minutes count ten times and Windows twice, so this does
+# not run on every push (ci.yml does Linux on every push). Least privilege; actions
+# pinned to full commit SHAs.
+name: platforms
+on:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: platforms-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Test
+        run: cargo test --workspace --locked

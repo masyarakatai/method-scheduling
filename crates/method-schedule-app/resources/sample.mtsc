@@ -1,0 +1,1366 @@
+{
+  "format": "method-schedule",
+  "version": 0,
+  "schedule": {
+    "title": "Saltmarsh Road (sample)",
+    "production": {
+      "company": "Tidewater Pictures",
+      "director": "Wren Halloway",
+      "producer": "Ezra Quill",
+      "script_date": "2027-02-12"
+    },
+    "next_id": 146,
+    "categories": [
+      {
+        "id": 1,
+        "name": "Cast",
+        "auto_board_id": true,
+        "properties": [
+          "Full name",
+          "Address",
+          "Phone",
+          "Agent",
+          "Agent phone",
+          "Rate",
+          "Rate per",
+          "Deal notes"
+        ],
+        "multi_line": [
+          "Address",
+          "Deal notes"
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Background",
+        "daily_quantity": true
+      },
+      {
+        "id": 5,
+        "name": "Stand-ins",
+        "daily_quantity": true
+      },
+      {
+        "id": 6,
+        "name": "Stunts",
+        "auto_board_id": true
+      },
+      {
+        "id": 7,
+        "name": "Hand props"
+      },
+      {
+        "id": 8,
+        "name": "Set dressing"
+      },
+      {
+        "id": 9,
+        "name": "Wardrobe"
+      },
+      {
+        "id": 10,
+        "name": "Hair and makeup"
+      },
+      {
+        "id": 11,
+        "name": "Picture vehicles"
+      },
+      {
+        "id": 12,
+        "name": "Animals",
+        "daily_quantity": true
+      },
+      {
+        "id": 13,
+        "name": "Practical effects"
+      },
+      {
+        "id": 14,
+        "name": "Visual effects"
+      },
+      {
+        "id": 15,
+        "name": "Camera"
+      },
+      {
+        "id": 16,
+        "name": "Grip and electric"
+      },
+      {
+        "id": 17,
+        "name": "Sound and music"
+      },
+      {
+        "id": 18,
+        "name": "Special equipment"
+      },
+      {
+        "id": 19,
+        "name": "Extra crew",
+        "daily_quantity": true
+      },
+      {
+        "id": 20,
+        "name": "Safety"
+      },
+      {
+        "id": 21,
+        "name": "Other"
+      }
+    ],
+    "red_flag_types": [
+      {
+        "id": 22,
+        "name": "Travel",
+        "builtin": "travel"
+      },
+      {
+        "id": 23,
+        "name": "Fitting",
+        "builtin": "fitting"
+      },
+      {
+        "id": 24,
+        "name": "Rehearsal",
+        "builtin": "rehearsal"
+      },
+      {
+        "id": 25,
+        "name": "Unavailable",
+        "builtin": "unavailable"
+      },
+      {
+        "id": 26,
+        "name": "Camera test",
+        "builtin": "camera_test"
+      },
+      {
+        "id": 27,
+        "name": "Post-production",
+        "builtin": "post_production"
+      },
+      {
+        "id": 28,
+        "name": "Visual effects",
+        "builtin": "visual_effects"
+      },
+      {
+        "id": 29,
+        "name": "Dubbing",
+        "builtin": "dubbing"
+      },
+      {
+        "id": 30,
+        "name": "Sync sound",
+        "builtin": "sync_sound"
+      },
+      {
+        "id": 31,
+        "name": "Music recording",
+        "builtin": "music_recording"
+      },
+      {
+        "id": 32,
+        "name": "Picture editing",
+        "builtin": "picture_editing"
+      },
+      {
+        "id": 33,
+        "name": "Sound editing",
+        "builtin": "sound_editing"
+      },
+      {
+        "id": 34,
+        "name": "Sound mixing",
+        "builtin": "sound_mixing"
+      },
+      {
+        "id": 35,
+        "name": "Titles and graphics",
+        "builtin": "titles_graphics"
+      },
+      {
+        "id": 36,
+        "name": "Trailer",
+        "builtin": "trailer"
+      },
+      {
+        "id": 37,
+        "name": "Color correction",
+        "builtin": "color_correction"
+      }
+    ],
+    "strip_colors": {
+      "rules": [
+        {
+          "time_of_day": "DAWN",
+          "color": "#f6d6e4"
+        },
+        {
+          "time_of_day": "DUSK",
+          "color": "#f4c7a1"
+        },
+        {
+          "int_ext": "INT",
+          "time_of_day": "DAY",
+          "color": "#ffffff"
+        },
+        {
+          "int_ext": "EXT",
+          "time_of_day": "DAY",
+          "color": "#fff2a8"
+        },
+        {
+          "int_ext": "INT",
+          "time_of_day": "NIGHT",
+          "color": "#b7cff7"
+        },
+        {
+          "int_ext": "EXT",
+          "time_of_day": "NIGHT",
+          "color": "#a6d8b0"
+        }
+      ]
+    },
+    "elements": [
+      {
+        "id": 38,
+        "category": 1,
+        "name": "MAREN COLE",
+        "board_id": "1",
+        "rules": {
+          "holds": true,
+          "drops": true,
+          "min_drop_gap": 7
+        }
+      },
+      {
+        "id": 39,
+        "category": 1,
+        "name": "OWEN PRICE",
+        "board_id": "2",
+        "rules": {
+          "holds": true,
+          "drops": true,
+          "min_drop_gap": 7
+        }
+      },
+      {
+        "id": 40,
+        "category": 1,
+        "name": "IDA FENN",
+        "board_id": "3",
+        "rules": {
+          "holds": true,
+          "drops": true,
+          "min_drop_gap": 7
+        }
+      },
+      {
+        "id": 41,
+        "category": 1,
+        "name": "THEO MARSH",
+        "board_id": "4",
+        "rules": {
+          "holds": true,
+          "drops": true,
+          "min_drop_gap": 7
+        }
+      },
+      {
+        "id": 42,
+        "category": 1,
+        "name": "RUTH ALDER",
+        "board_id": "5",
+        "rules": {
+          "holds": true,
+          "drops": true,
+          "min_drop_gap": 7
+        }
+      },
+      {
+        "id": 43,
+        "category": 1,
+        "name": "JONAH VALE",
+        "board_id": "6",
+        "rules": {
+          "holds": true,
+          "drops": true,
+          "min_drop_gap": 7
+        }
+      },
+      {
+        "id": 44,
+        "category": 1,
+        "name": "DR. LISS",
+        "board_id": "7",
+        "rules": {
+          "holds": true,
+          "drops": true,
+          "min_drop_gap": 7
+        },
+        "red_flags": [
+          {
+            "id": 145,
+            "type": 25,
+            "from": "2027-04-15",
+            "to": "2027-04-16",
+            "note": "Teaching that week",
+            "hard": true
+          }
+        ]
+      },
+      {
+        "id": 45,
+        "category": 1,
+        "name": "FERRY CAPTAIN",
+        "board_id": "8",
+        "rules": {
+          "holds": true,
+          "drops": true,
+          "min_drop_gap": 7
+        }
+      },
+      {
+        "id": 46,
+        "category": 7,
+        "name": "LANTERN"
+      },
+      {
+        "id": 47,
+        "category": 7,
+        "name": "RADIO"
+      },
+      {
+        "id": 48,
+        "category": 7,
+        "name": "MAP"
+      },
+      {
+        "id": 49,
+        "category": 7,
+        "name": "KEYS"
+      },
+      {
+        "id": 50,
+        "category": 11,
+        "name": "PICKUP TRUCK"
+      },
+      {
+        "id": 51,
+        "category": 11,
+        "name": "FERRY"
+      },
+      {
+        "id": 52,
+        "category": 12,
+        "name": "BISCUIT"
+      },
+      {
+        "id": 53,
+        "category": 4,
+        "name": "DINER REGULARS"
+      },
+      {
+        "id": 54,
+        "category": 4,
+        "name": "DOCK WORKERS"
+      }
+    ],
+    "sheets": [
+      {
+        "id": 57,
+        "number": "1",
+        "scenes": "1",
+        "int_ext": "EXT",
+        "set": "MARSH HOUSE - PORCH",
+        "time_of_day": "DAWN",
+        "eighths": 6,
+        "shoot_minutes": 90,
+        "synopsis": "Maren watches the tide come in over the marsh.",
+        "location": "Marsh House",
+        "elements": [
+          38,
+          46,
+          52
+        ]
+      },
+      {
+        "id": 59,
+        "number": "2",
+        "scenes": "2",
+        "int_ext": "INT",
+        "set": "MARSH HOUSE - KITCHEN",
+        "time_of_day": "DAY",
+        "eighths": 12,
+        "shoot_minutes": 135,
+        "synopsis": "Ida brings the mail and news that the road will close.",
+        "location": "Marsh House",
+        "elements": [
+          38,
+          40,
+          47
+        ]
+      },
+      {
+        "id": 61,
+        "number": "13",
+        "scenes": "13",
+        "int_ext": "EXT",
+        "set": "MARSH HOUSE - PORCH",
+        "time_of_day": "DAY",
+        "eighths": 5,
+        "shoot_minutes": 90,
+        "synopsis": "Owen and Ida argue about the tide tables.",
+        "location": "Marsh House",
+        "elements": [
+          39,
+          40,
+          52
+        ]
+      },
+      {
+        "id": 63,
+        "number": "14",
+        "scenes": "14",
+        "int_ext": "EXT",
+        "set": "MARSH HOUSE - PORCH",
+        "time_of_day": "DUSK",
+        "eighths": 4,
+        "shoot_minutes": 45,
+        "synopsis": "Maren lights the lantern for the first time in years.",
+        "location": "Marsh House",
+        "elements": [
+          38,
+          46
+        ]
+      },
+      {
+        "id": 66,
+        "number": "5",
+        "scenes": "5",
+        "int_ext": "INT",
+        "set": "MARSH HOUSE - KITCHEN",
+        "time_of_day": "NIGHT",
+        "eighths": 9,
+        "shoot_minutes": 135,
+        "synopsis": "Owen turns up out of the storm, soaked.",
+        "location": "Marsh House",
+        "elements": [
+          38,
+          39,
+          47,
+          46
+        ]
+      },
+      {
+        "id": 68,
+        "number": "6",
+        "scenes": "6",
+        "int_ext": "INT",
+        "set": "MARSH HOUSE - KITCHEN",
+        "time_of_day": "NIGHT",
+        "eighths": 14,
+        "shoot_minutes": 180,
+        "synopsis": "Owen spreads the old map on the table.",
+        "location": "Marsh House",
+        "elements": [
+          38,
+          39,
+          48
+        ]
+      },
+      {
+        "id": 71,
+        "number": "12",
+        "scenes": "12",
+        "int_ext": "INT",
+        "set": "MARSH HOUSE - KITCHEN",
+        "time_of_day": "DAY",
+        "eighths": 10,
+        "shoot_minutes": 135,
+        "synopsis": "Ida knows the handwriting on the map.",
+        "location": "Marsh House",
+        "elements": [
+          38,
+          39,
+          40,
+          48
+        ]
+      },
+      {
+        "id": 73,
+        "number": "27",
+        "scenes": "27",
+        "int_ext": "INT",
+        "set": "MARSH HOUSE - BEDROOM",
+        "time_of_day": "NIGHT",
+        "eighths": 8,
+        "shoot_minutes": 90,
+        "synopsis": "Maren finds her father's keys under a floorboard.",
+        "location": "Marsh House",
+        "elements": [
+          38,
+          49
+        ]
+      },
+      {
+        "id": 75,
+        "number": "28",
+        "scenes": "28",
+        "int_ext": "INT",
+        "set": "MARSH HOUSE - BEDROOM",
+        "time_of_day": "DAY",
+        "eighths": 6,
+        "shoot_minutes": 90,
+        "synopsis": "Ruth helps Maren pack.",
+        "location": "Marsh House",
+        "elements": [
+          38,
+          42
+        ]
+      },
+      {
+        "id": 78,
+        "number": "40",
+        "scenes": "40",
+        "int_ext": "EXT",
+        "set": "MARSH HOUSE - PORCH",
+        "time_of_day": "DAY",
+        "eighths": 7,
+        "shoot_minutes": 90,
+        "synopsis": "Everyone says goodbye on the porch.",
+        "location": "Marsh House",
+        "elements": [
+          38,
+          39,
+          40,
+          42,
+          52
+        ]
+      },
+      {
+        "id": 81,
+        "number": "3",
+        "scenes": "3",
+        "int_ext": "EXT",
+        "set": "HARBOR PIER",
+        "time_of_day": "DAY",
+        "eighths": 8,
+        "shoot_minutes": 90,
+        "synopsis": "Theo unloads crates and won't meet Maren's eye.",
+        "location": "Harbor",
+        "elements": [
+          38,
+          41,
+          50,
+          54
+        ],
+        "quantities": [
+          {
+            "element": 54,
+            "count": 6
+          }
+        ]
+      },
+      {
+        "id": 83,
+        "number": "4",
+        "scenes": "4",
+        "int_ext": "EXT",
+        "set": "HARBOR PIER",
+        "time_of_day": "DAY",
+        "eighths": 5,
+        "shoot_minutes": 90,
+        "synopsis": "The ferry captain warns Theo off.",
+        "location": "Harbor",
+        "elements": [
+          41,
+          45,
+          54
+        ],
+        "quantities": [
+          {
+            "element": 54,
+            "count": 6
+          }
+        ]
+      },
+      {
+        "id": 86,
+        "number": "9",
+        "scenes": "9",
+        "int_ext": "EXT",
+        "set": "FERRY DECK",
+        "time_of_day": "DAY",
+        "eighths": 11,
+        "shoot_minutes": 135,
+        "synopsis": "Maren crosses to the island.",
+        "location": "Harbor",
+        "elements": [
+          38,
+          45,
+          51
+        ]
+      },
+      {
+        "id": 88,
+        "number": "10",
+        "scenes": "10",
+        "int_ext": "EXT",
+        "set": "FERRY DECK",
+        "time_of_day": "DUSK",
+        "eighths": 6,
+        "shoot_minutes": 90,
+        "synopsis": "Owen finds Maren on the deck.",
+        "location": "Harbor",
+        "elements": [
+          38,
+          39,
+          45,
+          51,
+          48
+        ]
+      },
+      {
+        "id": 91,
+        "number": "17",
+        "scenes": "17",
+        "int_ext": "INT",
+        "set": "HARBOR DINER",
+        "time_of_day": "DAY",
+        "eighths": 13,
+        "shoot_minutes": 180,
+        "synopsis": "Jonah offers Maren a job she doesn't want.",
+        "location": "Harbor",
+        "elements": [
+          38,
+          41,
+          43,
+          53
+        ],
+        "quantities": [
+          {
+            "element": 53,
+            "count": 12
+          }
+        ]
+      },
+      {
+        "id": 93,
+        "number": "18",
+        "scenes": "18",
+        "int_ext": "INT",
+        "set": "HARBOR DINER",
+        "time_of_day": "NIGHT",
+        "eighths": 9,
+        "shoot_minutes": 135,
+        "synopsis": "Theo and Jonah settle an old debt.",
+        "location": "Harbor",
+        "elements": [
+          41,
+          43,
+          53
+        ],
+        "quantities": [
+          {
+            "element": 53,
+            "count": 12
+          }
+        ]
+      },
+      {
+        "id": 96,
+        "number": "21",
+        "scenes": "21",
+        "int_ext": "EXT",
+        "set": "BOATYARD",
+        "time_of_day": "DAY",
+        "eighths": 10,
+        "shoot_minutes": 135,
+        "synopsis": "Owen asks Theo about the night of the wreck.",
+        "location": "Harbor",
+        "elements": [
+          39,
+          41,
+          50
+        ]
+      },
+      {
+        "id": 98,
+        "number": "22",
+        "scenes": "22",
+        "int_ext": "EXT",
+        "set": "BOATYARD",
+        "time_of_day": "NIGHT",
+        "eighths": 7,
+        "shoot_minutes": 90,
+        "synopsis": "Jonah catches them in the boatyard.",
+        "location": "Harbor",
+        "elements": [
+          39,
+          41,
+          43,
+          46
+        ]
+      },
+      {
+        "id": 101,
+        "number": "30",
+        "scenes": "30",
+        "int_ext": "EXT",
+        "set": "HARBOR PIER",
+        "time_of_day": "NIGHT",
+        "eighths": 12,
+        "shoot_minutes": 135,
+        "synopsis": "The keys open the harbor master's shed.",
+        "location": "Harbor",
+        "elements": [
+          38,
+          39,
+          41,
+          43,
+          46,
+          49
+        ]
+      },
+      {
+        "id": 103,
+        "number": "31",
+        "scenes": "31",
+        "int_ext": "INT",
+        "set": "HARBOR MASTER'S SHED",
+        "time_of_day": "NIGHT",
+        "eighths": 9,
+        "shoot_minutes": 135,
+        "synopsis": "The radio log says who called the ferry.",
+        "location": "Harbor",
+        "elements": [
+          38,
+          39,
+          49,
+          47
+        ]
+      },
+      {
+        "id": 106,
+        "number": "7",
+        "scenes": "7",
+        "int_ext": "INT",
+        "set": "CLINIC",
+        "time_of_day": "DAY",
+        "eighths": 8,
+        "shoot_minutes": 90,
+        "synopsis": "Dr. Liss tells Maren what her father knew.",
+        "location": "Stage 2",
+        "elements": [
+          38,
+          44
+        ]
+      },
+      {
+        "id": 108,
+        "number": "8",
+        "scenes": "8",
+        "int_ext": "INT",
+        "set": "CLINIC",
+        "time_of_day": "DAY",
+        "eighths": 4,
+        "shoot_minutes": 45,
+        "synopsis": "Dr. Liss makes a phone call.",
+        "location": "Stage 2",
+        "elements": [
+          44
+        ]
+      },
+      {
+        "id": 110,
+        "number": "24",
+        "scenes": "24",
+        "int_ext": "INT",
+        "set": "CLINIC",
+        "time_of_day": "NIGHT",
+        "eighths": 10,
+        "shoot_minutes": 135,
+        "synopsis": "Ida confronts Dr. Liss.",
+        "location": "Stage 2",
+        "elements": [
+          40,
+          44,
+          47
+        ]
+      },
+      {
+        "id": 113,
+        "number": "33",
+        "scenes": "33",
+        "int_ext": "INT",
+        "set": "OWEN'S TRUCK",
+        "time_of_day": "NIGHT",
+        "eighths": 6,
+        "shoot_minutes": 90,
+        "synopsis": "Driving the marsh road in the dark.",
+        "location": "Stage 2",
+        "elements": [
+          38,
+          39,
+          50
+        ]
+      },
+      {
+        "id": 115,
+        "number": "34",
+        "scenes": "34",
+        "int_ext": "INT",
+        "set": "OWEN'S TRUCK",
+        "time_of_day": "DAY",
+        "eighths": 5,
+        "shoot_minutes": 90,
+        "synopsis": "Owen admits why he came back.",
+        "location": "Stage 2",
+        "elements": [
+          38,
+          39,
+          50
+        ]
+      },
+      {
+        "id": 117,
+        "number": "36",
+        "scenes": "36",
+        "int_ext": "INT",
+        "set": "JONAH'S OFFICE",
+        "time_of_day": "DAY",
+        "eighths": 11,
+        "shoot_minutes": 135,
+        "synopsis": "Jonah's account books don't add up.",
+        "location": "Stage 2",
+        "elements": [
+          41,
+          43
+        ]
+      },
+      {
+        "id": 120,
+        "number": "37",
+        "scenes": "37",
+        "int_ext": "INT",
+        "set": "JONAH'S OFFICE",
+        "time_of_day": "NIGHT",
+        "eighths": 9,
+        "shoot_minutes": 135,
+        "synopsis": "Maren lays the map on Jonah's desk.",
+        "location": "Stage 2",
+        "elements": [
+          38,
+          43,
+          48
+        ]
+      },
+      {
+        "id": 122,
+        "number": "38",
+        "scenes": "38",
+        "int_ext": "INT",
+        "set": "RUTH'S HOUSE",
+        "time_of_day": "DAY",
+        "eighths": 8,
+        "shoot_minutes": 90,
+        "synopsis": "Ruth tells the story her sister never would.",
+        "location": "Stage 2",
+        "elements": [
+          38,
+          42
+        ]
+      },
+      {
+        "id": 124,
+        "number": "39",
+        "scenes": "39",
+        "int_ext": "INT",
+        "set": "RUTH'S HOUSE",
+        "time_of_day": "NIGHT",
+        "eighths": 6,
+        "shoot_minutes": 90,
+        "synopsis": "Ida and Ruth make peace.",
+        "location": "Stage 2",
+        "elements": [
+          38,
+          40,
+          42
+        ]
+      },
+      {
+        "id": 127,
+        "number": "11",
+        "scenes": "11",
+        "int_ext": "EXT",
+        "set": "SALTMARSH ROAD",
+        "time_of_day": "DAY",
+        "eighths": 3,
+        "shoot_minutes": 45,
+        "synopsis": "The truck on the causeway at high tide.",
+        "location": "Marsh House",
+        "elements": [
+          50
+        ]
+      },
+      {
+        "id": 129,
+        "number": "16",
+        "scenes": "16",
+        "int_ext": "EXT",
+        "set": "SALTMARSH ROAD",
+        "time_of_day": "DUSK",
+        "eighths": 3,
+        "shoot_minutes": 45,
+        "synopsis": "Headlights along the road.",
+        "location": "Marsh House",
+        "elements": [
+          50
+        ]
+      },
+      {
+        "id": 131,
+        "number": "32",
+        "scenes": "32",
+        "int_ext": "EXT",
+        "set": "SALTMARSH ROAD",
+        "time_of_day": "NIGHT",
+        "eighths": 4,
+        "shoot_minutes": 45,
+        "synopsis": "The road under water.",
+        "location": "Marsh House",
+        "elements": [
+          50
+        ]
+      },
+      {
+        "id": 134,
+        "number": "15",
+        "scenes": "15",
+        "int_ext": "EXT",
+        "set": "MARSH",
+        "time_of_day": "DAWN",
+        "eighths": 2,
+        "shoot_minutes": 45,
+        "synopsis": "Biscuit runs the tide line.",
+        "location": "Marsh House",
+        "elements": [
+          52
+        ]
+      },
+      {
+        "id": 136,
+        "number": "35",
+        "scenes": "35",
+        "int_ext": "EXT",
+        "set": "MARSH",
+        "time_of_day": "DAY",
+        "eighths": 2,
+        "shoot_minutes": 45,
+        "synopsis": "Wind through the grass.",
+        "location": "Marsh House"
+      },
+      {
+        "id": 138,
+        "number": "25",
+        "scenes": "25",
+        "int_ext": "EXT",
+        "set": "OPEN WATER",
+        "time_of_day": "DAY",
+        "eighths": 4,
+        "shoot_minutes": 45,
+        "synopsis": "The ferry from above.",
+        "location": "Harbor",
+        "elements": [
+          51
+        ]
+      },
+      {
+        "id": 141,
+        "number": "19",
+        "scenes": "19",
+        "int_ext": "INT",
+        "set": "HARBOR DINER",
+        "time_of_day": "DAY",
+        "eighths": 3,
+        "shoot_minutes": 45,
+        "synopsis": "Jonah alone after closing.",
+        "location": "Harbor",
+        "elements": [
+          43,
+          53
+        ],
+        "quantities": [
+          {
+            "element": 53,
+            "count": 12
+          }
+        ]
+      },
+      {
+        "id": 143,
+        "number": "23",
+        "scenes": "23",
+        "int_ext": "EXT",
+        "set": "BOATYARD",
+        "time_of_day": "DAWN",
+        "eighths": 4,
+        "shoot_minutes": 45,
+        "synopsis": "Theo watches the wreck towed in.",
+        "location": "Harbor",
+        "elements": [
+          41
+        ]
+      }
+    ],
+    "boards": [
+      {
+        "id": 2,
+        "name": "Shooting Order",
+        "sub_boards": [
+          {
+            "id": 3,
+            "name": "Main",
+            "start": "2027-04-05",
+            "calendar": {
+              "holidays": [
+                "2027-04-16"
+              ],
+              "events": [
+                {
+                  "kind": "fitting",
+                  "name": "Wardrobe fitting",
+                  "from": "2027-04-02",
+                  "to": "2027-04-02",
+                  "elements": [
+                    38,
+                    39
+                  ],
+                  "color": "teal"
+                },
+                {
+                  "kind": "travel",
+                  "name": "Travel in",
+                  "from": "2027-04-07",
+                  "to": "2027-04-07",
+                  "elements": [
+                    45
+                  ]
+                },
+                {
+                  "kind": "travel",
+                  "name": "Travel home",
+                  "from": "2027-04-10",
+                  "to": "2027-04-10",
+                  "elements": [
+                    45
+                  ]
+                },
+                {
+                  "kind": "rehearsal",
+                  "name": "Diner rehearsal",
+                  "from": "2027-04-09",
+                  "to": "2027-04-09",
+                  "elements": [
+                    41,
+                    43
+                  ],
+                  "color": "orange"
+                }
+              ]
+            },
+            "strips": [
+              {
+                "kind": "banner",
+                "id": 56,
+                "text": "Block one: Marsh House",
+                "bold": true,
+                "color": "yellow",
+                "tall": true
+              },
+              {
+                "kind": "sheet",
+                "id": 58,
+                "sheet": 57
+              },
+              {
+                "kind": "sheet",
+                "id": 60,
+                "sheet": 59
+              },
+              {
+                "kind": "sheet",
+                "id": 62,
+                "sheet": 61
+              },
+              {
+                "kind": "sheet",
+                "id": 64,
+                "sheet": 63
+              },
+              {
+                "kind": "day_break",
+                "id": 65
+              },
+              {
+                "kind": "sheet",
+                "id": 67,
+                "sheet": 66
+              },
+              {
+                "kind": "sheet",
+                "id": 69,
+                "sheet": 68
+              },
+              {
+                "kind": "day_break",
+                "id": 70
+              },
+              {
+                "kind": "sheet",
+                "id": 72,
+                "sheet": 71
+              },
+              {
+                "kind": "sheet",
+                "id": 74,
+                "sheet": 73
+              },
+              {
+                "kind": "sheet",
+                "id": 76,
+                "sheet": 75
+              },
+              {
+                "kind": "day_break",
+                "id": 77
+              },
+              {
+                "kind": "sheet",
+                "id": 79,
+                "sheet": 78
+              },
+              {
+                "kind": "banner",
+                "id": 80,
+                "text": "Company move to the harbor",
+                "minutes": 45,
+                "bold": true,
+                "color": "teal"
+              },
+              {
+                "kind": "sheet",
+                "id": 82,
+                "sheet": 81
+              },
+              {
+                "kind": "sheet",
+                "id": 84,
+                "sheet": 83
+              },
+              {
+                "kind": "day_break",
+                "id": 85
+              },
+              {
+                "kind": "sheet",
+                "id": 87,
+                "sheet": 86
+              },
+              {
+                "kind": "sheet",
+                "id": 89,
+                "sheet": 88
+              },
+              {
+                "kind": "day_break",
+                "id": 90
+              },
+              {
+                "kind": "sheet",
+                "id": 92,
+                "sheet": 91
+              },
+              {
+                "kind": "sheet",
+                "id": 94,
+                "sheet": 93
+              },
+              {
+                "kind": "day_break",
+                "id": 95
+              },
+              {
+                "kind": "sheet",
+                "id": 97,
+                "sheet": 96
+              },
+              {
+                "kind": "sheet",
+                "id": 99,
+                "sheet": 98
+              },
+              {
+                "kind": "day_break",
+                "id": 100
+              },
+              {
+                "kind": "sheet",
+                "id": 102,
+                "sheet": 101
+              },
+              {
+                "kind": "sheet",
+                "id": 104,
+                "sheet": 103
+              },
+              {
+                "kind": "day_break",
+                "id": 105
+              },
+              {
+                "kind": "sheet",
+                "id": 107,
+                "sheet": 106
+              },
+              {
+                "kind": "sheet",
+                "id": 109,
+                "sheet": 108
+              },
+              {
+                "kind": "sheet",
+                "id": 111,
+                "sheet": 110
+              },
+              {
+                "kind": "day_break",
+                "id": 112
+              },
+              {
+                "kind": "sheet",
+                "id": 114,
+                "sheet": 113
+              },
+              {
+                "kind": "sheet",
+                "id": 116,
+                "sheet": 115
+              },
+              {
+                "kind": "sheet",
+                "id": 118,
+                "sheet": 117
+              },
+              {
+                "kind": "day_break",
+                "id": 119
+              },
+              {
+                "kind": "sheet",
+                "id": 121,
+                "sheet": 120
+              },
+              {
+                "kind": "sheet",
+                "id": 123,
+                "sheet": 122
+              },
+              {
+                "kind": "sheet",
+                "id": 125,
+                "sheet": 124
+              },
+              {
+                "kind": "day_break",
+                "id": 126
+              }
+            ]
+          },
+          {
+            "id": 55,
+            "name": "Second Unit",
+            "start": "2027-04-12",
+            "calendar": {
+              "holidays": [
+                "2027-04-16"
+              ]
+            },
+            "strips": [
+              {
+                "kind": "sheet",
+                "id": 128,
+                "sheet": 127
+              },
+              {
+                "kind": "sheet",
+                "id": 130,
+                "sheet": 129
+              },
+              {
+                "kind": "sheet",
+                "id": 132,
+                "sheet": 131
+              },
+              {
+                "kind": "day_break",
+                "id": 133
+              },
+              {
+                "kind": "sheet",
+                "id": 135,
+                "sheet": 134
+              },
+              {
+                "kind": "sheet",
+                "id": 137,
+                "sheet": 136
+              },
+              {
+                "kind": "sheet",
+                "id": 139,
+                "sheet": 138
+              },
+              {
+                "kind": "day_break",
+                "id": 140
+              }
+            ]
+          }
+        ],
+        "boneyard": [
+          {
+            "kind": "sheet",
+            "id": 142,
+            "sheet": 141
+          },
+          {
+            "kind": "sheet",
+            "id": 144,
+            "sheet": 143
+          }
+        ]
+      }
+    ],
+    "plan": {
+      "locations": [
+        {
+          "name": "Marsh House",
+          "latitude_microdeg": 43851000,
+          "longitude_microdeg": -69947000,
+          "utc_offset_minutes": -300,
+          "daylight_saving": "us_canada"
+        },
+        {
+          "name": "Harbor",
+          "latitude_microdeg": 43657000,
+          "longitude_microdeg": -70248000,
+          "utc_offset_minutes": -300,
+          "daylight_saving": "us_canada"
+        }
+      ]
+    }
+  }
+}

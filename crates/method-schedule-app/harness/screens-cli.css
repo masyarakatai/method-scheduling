@@ -1,0 +1,11 @@
+/* The command line picture (decision 215): a terminal window's content, light and dark, in
+   the brand's neutrals (docs/BRAND.md). Real output, written by scripts/capture-screens.mjs. */
+:root { color-scheme: light dark; --bg: #f7f6f2; --ink: #1c2228; --dim: #59626d; --prompt: #2f5fb3; }
+@media (prefers-color-scheme: dark) { :root { --bg: #111417; --ink: #e4e8ec; --dim: #9aa3ad; --prompt: #7aa2f0; } }
+html, body { margin: 0; height: 100%; background: var(--bg); }
+.term { box-sizing: border-box; height: 100%; padding: 28px 36px; color: var(--ink); font: 15px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; white-space: pre; overflow: hidden; }
+.term .cmd { color: var(--ink); font-weight: 600; }
+.term .cmd::before { content: "$ "; color: var(--prompt); }
+.term .out { color: var(--ink); }
+.term .note { color: var(--dim); }
+.term .gap { height: 12px; }

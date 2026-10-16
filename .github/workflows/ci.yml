@@ -1,0 +1,128 @@
+# Least privilege by default. Pin all actions to full commit SHAs (pinact run).
+name: ci
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install Tauri system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev libxdo-dev libssl-dev build-essential pkg-config libgtk-3-dev
+      - name: Rust components
+        run: rustup component add clippy rustfmt
+      - name: Format
+        run: cargo fmt --all -- --check
+      - name: Clippy
+        run: cargo clippy --workspace --all-targets --locked -- -D warnings
+      - name: Test
+        run: cargo test --workspace --locked
+  budgets:
+    # Performance budgets at 1,500 strips (decisions.md, entries 176 to 178 and 191):
+    # release builds only, each timing the median of 15 runs, scaled for the runner's speed.
+    # The Rust budget writes the board view the page's budget then draws under Node.
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install Tauri system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev libxdo-dev libssl-dev build-essential pkg-config libgtk-3-dev
+      - name: Rust budgets
+        env:
+          METHOD_SCHEDULE_VIEW_DUMP: ${{ runner.temp }}/board-view.json
+        run: cargo test --release --workspace --locked -- --ignored budget --nocapture
+      - name: Page budget
+        env:
+          METHOD_SCHEDULE_VIEW: ${{ runner.temp }}/board-view.json
+        run: |
+          node --version
+          node --test crates/method-schedule-app/page-tests/board-budget.mjs
+  page:
+    # The page's own rules (crates/method-schedule-app/ui/js/logic.js) under Node's
+    # built-in test runner, which the runner image has; no npm (decisions.md, entry 137).
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Page logic tests
+        run: |
+          node --version
+          node --test crates/method-schedule-app/page-tests/logic.test.mjs
+  cooldown:
+    # Fails a pull request or a push that adds crates published less than 14 days ago.
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Check crate ages
+        env:
+          EVENT: ${{ github.event_name }}
+          BEFORE: ${{ github.event.before }}
+        run: |
+          set -euo pipefail
+          # Compare with what the branch had before: main for a pull request, the
+          # pushed-over commit for a push, main for a new branch. With nothing to
+          # compare with, every crate is checked.
+          if [ "$EVENT" = pull_request ]; then
+            base=origin/main
+          elif [ -n "${BEFORE:-}" ] && git cat-file -e "${BEFORE}^{commit}" 2>/dev/null; then
+            base="$BEFORE"
+          elif [ "$GITHUB_REF" != refs/heads/main ]; then
+            base=origin/main
+          else
+            base=""
+          fi
+          if [ -n "$base" ]; then
+            python3 scripts/check-crate-ages.py --only-changed "$base"
+          else
+            python3 scripts/check-crate-ages.py
+          fi
+  deny:
+    # deny.toml: known advisories, licenses compatible with MIT OR Apache-2.0, crates.io
+    # as the only source; and THIRD-PARTY-NOTICES.md current with Cargo.lock (decision 209).
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: EmbarkStudios/cargo-deny-action@3c6349835b2b7b196a839186cb8b78e02f7b5f25 # v2.1.1
+        with:
+          command: check
+      - name: Third-party notices are up to date
+        run: |
+          cargo fetch --locked
+          python3 scripts/notices.py --check
+  site:
+    # README.md and site/ must match docs/features.toml and the newest release notes, and
+    # the brand files must match scripts/make-brand.py (docs/WEBSITE.md, docs/BRAND.md).
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Feature list and site are up to date
+        run: python3 scripts/site.py --check
+      - name: Brand files match scripts/make-brand.py
+        run: python3 scripts/make-brand.py --check
