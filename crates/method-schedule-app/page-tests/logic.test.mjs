@@ -800,3 +800,15 @@ test('screen block 6: the lead cell keeps | and _ rules, primary buttons stay re
   assert.match(css, /:root\[data-theme="ledger"\] \.btn:not\(\.btn-primary\)/, "Ledger's white buttons skip primary ones");
   assert.match(css, /input\.date-field\.w-s \{ width: 8\.25em; \}/, 'a short date field fits its hint');
 });
+
+test('decision 219: fenced blocks kept as written for the notices; the board fills the window', () => {
+  const md = '## License texts\n\n### MIT\n\n```text\nMIT License\n\n# not a heading\n- not a list\n```\n\nAfter.';
+  const b = L.guideBlocks(md);
+  assert.deepEqual(b.map((x) => x.kind), ['h2', 'h3', 'pre', 'p']);
+  assert.equal(b[2].text, 'MIT License\n\n# not a heading\n- not a list');
+  assert.equal(b[3].text, 'After.');
+  // An unclosed fence keeps the rest as written rather than dropping it.
+  assert.equal(L.guideBlocks('```\nkept').at(-1).text, 'kept');
+  const css = readFileSync(new URL('../ui/styles.css', import.meta.url), 'utf8');
+  assert.match(css, /\n\.board \{ outline: none; \}/, 'no width cap on the board');
+});

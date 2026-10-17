@@ -32,7 +32,7 @@ Size: **S** a day or two, **M** about a week, **L** more than a week.
   extras beyond the reference app (BYD-01 to BYD-12), a local signed Mac release
   script with a draft-release workflow (decision 196), the sample production and the
   user guide in the Help menu (decisions 198 and 199) and crash recovery as tests
-  (decision 200). Decisions run to 218.
+  (decision 200). Decisions run to 219.
 - **Not yet**: a notarized build anyone can download, a live site, Windows and Linux run
   by hand, M1's new UI seen in the real window (screen block 6), and the rows left below.
 
@@ -51,7 +51,7 @@ outside downloads it.
 | Open engine checks still to see in the reference app: whether a fixed built-in category set exists beyond the cast (E-L5), and whether an element left off the board counts in a category's element count (E-S34); every other queued check was answered in screen block 4 (behavior note 27) | S | engine-checks.md queue |
 | Known gap from decisions: strip designer scale to content (needs a look at the reference app's style panel; D87, D185) | S | decisions.md |
 | Review, DOOD and reports: in screen block 6, look at whether the reference app's spreadsheets follow a report's filters and without holds (they ignore its date range, note 27, as ours, D59), and whether a cast member off the board has a name with Cast names on (ours none, D142) | S | feature-review-2026-10-13.md, RPT-03, RPT-10 |
-| Screen block 7: what block 6 didn't run (docs/research/screen-block-6.md, "Not run"): K184 Find with the board beside the board; M192 Day Timeline past wrap on a day with shoot times; Layouts and Red Flag Types rename then click; K185 and K187 on paper; and in the reference app E-L5 and E-S34. Block 6 (2026-10-17) passed G167 to G171, J179 to J182, K183, K186, K188, M193, M194 and the new screens; its four look bugs are fixed (decision 218) | S | screen-block-6.md |
+| Screen block 7: a file opened from the Finder opens in its own window (decision 219); and what block 6 didn't run (docs/research/screen-block-6.md, "Not run"): K184 Find with the board beside the board; M192 Day Timeline past wrap on a day with shoot times; Layouts and Red Flag Types rename then click; K185 and K187 on paper; and in the reference app E-L5 and E-S34. Block 6 (2026-10-17) passed G167 to G171, J179 to J182, K183, K186, K188, M193, M194 and the new screens; its four look bugs are fixed (decision 218) | S | screen-block-6.md |
 | Live checks still open: IMP-04 (needs a tagged Final Draft script), DOD-06 and DOD-07 in the window, BYD-10 (behavior note 27's small items passed in screen block 6) | S | behavior note 27 |
 
 **Exit**: every review finding fixed or written up as a decision; no open engine check

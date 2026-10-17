@@ -357,19 +357,31 @@ export function filterShortcuts(groups, text) {
 
 /**
  * The guide's Markdown (docs/GUIDE.md) as blocks for the page to draw with text nodes:
- * `{ kind: 'h1' | 'h2' | 'h3' | 'p', text }` and `{ kind: 'ul', items: [text] }`. Only
- * what the guide uses: headings, paragraphs and `- ` lists, a wrapped line joining the
- * one before. Nothing in it is ever HTML.
+ * `{ kind: 'h1' | 'h2' | 'h3' | 'p' | 'pre', text }` and `{ kind: 'ul', items: [text] }`.
+ * Only what the guide and the third-party notices use: headings, paragraphs, `- ` lists
+ * (a wrapped line joining the one before) and fenced blocks kept line for line (the
+ * license texts, decision 219). Nothing in it is ever HTML.
  */
 export function guideBlocks(text) {
   const out = [];
   let para = null;
   let list = null;
+  let fence = null;
   const close = () => {
     para = null;
     list = null;
   };
   for (const raw of String(text ?? '').split(/\r?\n/)) {
+    if (fence) {
+      if (/^```\s*$/.test(raw)) fence = null;
+      else fence.text += (fence.text ? '\n' : '') + raw.trimEnd();
+      continue;
+    }
+    if (/^```/.test(raw)) {
+      close();
+      out.push((fence = { kind: 'pre', text: '' }));
+      continue;
+    }
     const line = raw.trimEnd();
     const heading = /^(#{1,3}) (.*)$/.exec(line);
     if (!line.trim()) {

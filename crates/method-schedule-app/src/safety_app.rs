@@ -484,8 +484,9 @@ pub fn on_exit<R: Runtime>(app: &AppHandle<R>) {
 }
 
 /// The system asked to open `paths` (macOS: double-click, Open With, a drop on the Dock
-/// icon). The first file is opened once the page asks for it (`open_pending`), after the
-/// unsaved-changes question.
+/// icon). A window that already holds a schedule keeps it: the file opens in a window of
+/// its own (decision 219). Only an untouched Untitled window takes it in place, once its
+/// page asks for it (`open_pending`).
 pub fn on_opened<R: Runtime>(app: &AppHandle<R>, paths: Vec<PathBuf>) {
     let Some(path) = paths.into_iter().find(|p| p.is_file()) else {
         return;
@@ -509,15 +510,40 @@ pub fn on_opened<R: Runtime>(app: &AppHandle<R>, paths: Vec<PathBuf>) {
             return;
         }
     }
-    *lock(&safety.pending_open) = Some(path);
     let target = crate::windows::focused(app)
         .map(|w| w.label().to_string())
         .unwrap_or_else(|| MAIN.to_string());
+    let untouched = app
+        .try_state::<crate::docs::Docs>()
+        .is_some_and(|d| d.get(&target).lock().is_untouched());
+    if !untouched {
+        let from = app.get_webview_window(&target);
+        if open_in_own_window(app, &path, from.as_ref()).is_ok() {
+            return;
+        }
+        // A file that can't be read is said in the window in front, as before.
+    }
+    *lock(&safety.pending_open) = Some(path);
     if let Some(w) = app.get_webview_window(&target) {
         let _ = w.set_focus();
     }
     // If the page isn't listening yet, it asks for the pending file itself when it starts.
     let _ = app.emit_to(target.as_str(), OPEN_REQUEST, name);
+}
+
+/// Opens `path` in a new window, cascaded from `from`, and adds it to Open Recent.
+fn open_in_own_window<R: Runtime>(
+    app: &AppHandle<R>,
+    path: &Path,
+    from: Option<&WebviewWindow<R>>,
+) -> Result<(), String> {
+    let next = Session::open(path)?;
+    if next.path().is_some() {
+        app.state::<Safety>().remember(path);
+    }
+    crate::windows::open_window(app, next, from)
+        .map(|_| ())
+        .map_err(|e| format!("A new window couldn't be opened: {e}"))
 }
 
 // ---------------------------------------------------------------------------

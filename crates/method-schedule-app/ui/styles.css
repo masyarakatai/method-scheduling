@@ -246,7 +246,8 @@ html, body {
 
 /* The board */
 
-.board { outline: none; max-width: 1100px; }
+/* The board fills the window (owner's decision after screen block 6, decision 219). */
+.board { outline: none; }
 .board:focus-visible .row.selected { outline: 2px solid var(--select-line); outline-offset: -2px; }
 
 .sub-board { margin-bottom: 12px; }
@@ -1374,7 +1375,9 @@ table.ks-table { min-width: 0; width: 100%; }
 .guide-body p { margin: 0 0 6px; max-width: 70ch; }
 .guide-body ul { margin: 0 0 6px; padding-left: 18px; max-width: 70ch; }
 /* Help > Licenses and Notices (decision 212): the texts as written, wrapped. */
-.guide-body.notices-text { margin: 0; font: 11px/1.4 var(--mono); white-space: pre-wrap; overflow-wrap: anywhere; }
+.guide-body .notices-text, .guide-body .guide-pre { margin: 0 0 8px; font: 11px/1.4 var(--mono); white-space: pre-wrap; overflow-wrap: anywhere; }
+.guide-body .guide-pre { padding: 6px 8px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 4px; }
+.guide-body h5 { font-size: 12px; margin: 6px 0 2px; }
 .guide-link[aria-pressed="true"] { background: var(--select); font-weight: 600; }
 .guide-body li { margin-bottom: 3px; }
 .guide-body code { font-family: var(--mono); font-size: 12px; }

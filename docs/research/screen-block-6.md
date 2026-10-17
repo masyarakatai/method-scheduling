@@ -35,7 +35,7 @@ only. The shared screen lock was held for the block and released after it.
 3. In Ledger, the white button style also painted primary buttons, leaving white text on white (Settings' Save).
 4. The set-apart scene cell (decision 206) drew its rule with a shadow that outranked a field's \| and _ rules, so the first field's rules never showed on strips.
 
-## Noted, not changed
+## Noted, then changed (the owner's answers, decision 219)
 
 - Opening a file from the system replaces the window's schedule (after asking about unsaved changes) instead of opening a new window, though the app keeps one window per schedule (decision 88). A design question for the owner.
 - Licenses and Notices shows the third-party notices as raw Markdown.

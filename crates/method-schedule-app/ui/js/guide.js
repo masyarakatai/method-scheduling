@@ -17,6 +17,16 @@ function inline(text) {
   });
 }
 
+/** Markdown as page nodes, text only: headings, paragraphs, lists and fenced blocks. */
+function markdownNodes(text) {
+  return guideBlocks(text).map((b) => {
+    if (b.kind === 'pre') return el('pre', { class: 'guide-pre', text: b.text });
+    if (b.kind === 'ul') return el('ul', {}, ...b.items.map((i) => el('li', {}, ...inline(i))));
+    if (b.kind === 'p') return el('p', {}, ...inline(b.text));
+    return el(b.kind === 'h1' ? 'h3' : b.kind === 'h2' ? 'h4' : 'h5', {}, ...inline(b.text));
+  });
+}
+
 /** Shows the guide. Resolves when it is closed. */
 export function guideSheet(text) {
   return customDialog((close) => {
@@ -27,7 +37,9 @@ export function guideSheet(text) {
     let n = 0;
     for (const b of blocks) {
       if (b.kind === 'h1') continue;
-      if (b.kind === 'ul') {
+      if (b.kind === 'pre') {
+        body.append(el('pre', { class: 'guide-pre', text: b.text }));
+      } else if (b.kind === 'ul') {
         body.append(el('ul', {}, ...b.items.map((i) => el('li', {}, ...inline(i)))));
       } else if (b.kind === 'p') {
         body.append(el('p', {}, ...inline(b.text)));
@@ -53,7 +65,9 @@ export function guideSheet(text) {
 /**
  * Help > Licenses and Notices (decision 212): Method Schedule's two licenses and the
  * third-party notices (THIRD-PARTY-NOTICES.md), built into the app and sent by Rust
- * (`notices`). One text at a time, picked down the side, shown as it is written.
+ * (`notices`). One text at a time, picked down the side: the notices drawn from their
+ * Markdown as the guide is (headings, paragraphs, the license texts kept as written), the
+ * two licenses as plain text (decision 219).
  */
 export function noticesSheet(n) {
   return customDialog((close) => {
@@ -62,10 +76,11 @@ export function noticesSheet(n) {
       ['MIT License', n.mit],
       ['Apache License 2.0', n.apache],
     ];
-    const body = el('pre', { class: 'guide-body notices-text', attrs: { tabindex: '0', 'aria-label': texts[0][0] } });
+    const body = el('div', { class: 'guide-body', attrs: { tabindex: '0', 'aria-label': texts[0][0] } });
     const toc = el('nav', { class: 'guide-toc', attrs: { 'aria-label': 'Licenses' } });
     const show = (i) => {
-      body.textContent = texts[i][1];
+      if (i === 0) body.replaceChildren(...markdownNodes(texts[i][1]));
+      else body.replaceChildren(el('pre', { class: 'notices-text', text: texts[i][1] }));
       body.setAttribute('aria-label', texts[i][0]);
       body.scrollTop = 0;
       for (const [k, b] of [...toc.children].entries()) b.setAttribute('aria-pressed', k === i ? 'true' : 'false');

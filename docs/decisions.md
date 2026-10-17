@@ -5369,3 +5369,24 @@ everything it ran passed but four look problems, fixed here.
   system replaces the window's schedule; raw Markdown in Licenses and Notices; the board's
   maximum width) are noted for the owner, not changed.
 
+## 219. A file opened from the system gets its own window; formatted notices; a full-width board (2026-10-17)
+
+The owner's answers to screen block 6's three questions (docs/research/screen-block-6.md,
+"Noted"), all yes.
+
+- **Its own window**: a file the system asks the app to open (a double-click in the Finder,
+  Open With, a drop on the Dock icon) opens in a new window, cascaded from the one in
+  front, as File > Open in New Window does, and joins Open Recent. A file already open
+  still brings its window forward (entry 86). Only an untouched Untitled window
+  (`Session::is_untouched`) takes the file in place, so launching the app with a file
+  doesn't leave an empty window behind. If the file can't be read, the window in front
+  says so, as before. `safety_app::on_opened`.
+- **Formatted notices**: Help > Licenses and Notices draws the third-party notices from
+  their Markdown as the user guide is drawn (headings, paragraphs, link words only) and
+  keeps the license texts' fenced blocks as written. `guideBlocks` now reads fenced
+  blocks (`pre`); the MIT and Apache texts stay plain text.
+- **Full-width board**: the board no longer stops at 1,100 px; it fills the window, the
+  set column taking the room.
+- Tests: page tests for the fenced blocks and the board's width. The new window from the
+  Finder joins the next screen block (it needs the real app).
+
