@@ -5350,3 +5350,22 @@ of this revision MUST carry, was already sent.
 - Test: `modern_lists_carry_caching_hints_and_legacy_lists_do_not` (mcp/tests.rs); the
   replies to Claude Code's recorded requests were checked before and after by hand.
 
+## 218. Screen block 6: four look fixes (2026-10-17)
+
+Screen block 6 ran the queued checks in the real window (docs/research/screen-block-6.md):
+everything it ran passed but four look problems, fixed here.
+
+- **Disabled primary buttons** read as disabled ordinary ones (`.btn.btn-primary:disabled`):
+  before, the faded text on a faded accent (Find and Replace's Replace) couldn't be read.
+- **Short date fields** (`input.date-field.w-s`) are 8.25em, so the calendar's Prep starts and
+  Wrap ends show their whole YYYY-MM-DD hint.
+- **Ledger's white buttons** leave primary and danger buttons alone (Settings' Save was
+  white on white).
+- **The set-apart scene cell** (decision 206) draws its rule and its selection bar as
+  backgrounds, not shadows: its shadow outranked a field's | and _ rules (`.rl-after`,
+  `.rl-under`), so a first field's rules never showed on the strips. Graphite and Ledger
+  follow suit.
+- Test: a page test pins all four. The block's other findings (opening a file from the
+  system replaces the window's schedule; raw Markdown in Licenses and Notices; the board's
+  maximum width) are noted for the owner, not changed.
+

@@ -791,3 +791,12 @@ test('updates: an automatic check is silent, one the user asked for answers (dec
   assert.equal(L.updateMessage(null), null);
 });
 
+
+test('screen block 6: the lead cell keeps | and _ rules, primary buttons stay readable', () => {
+  const css = readFileSync(new URL('../ui/styles.css', import.meta.url), 'utf8');
+  // No box-shadow on the lead cell: it would hide a field's .rl-after and .rl-under rules.
+  for (const m of css.matchAll(/([^{}]*\.lead[^{}]*)\{([^}]*)\}/g)) assert.doesNotMatch(m[2], /box-shadow/, m[1].trim());
+  assert.match(css, /\.btn\.btn-primary:disabled \{[^}]*opacity: 1;/, 'a disabled primary button is readable');
+  assert.match(css, /:root\[data-theme="ledger"\] \.btn:not\(\.btn-primary\)/, "Ledger's white buttons skip primary ones");
+  assert.match(css, /input\.date-field\.w-s \{ width: 8\.25em; \}/, 'a short date field fits its hint');
+});

@@ -1530,6 +1530,14 @@ run in CI).
 
 ## Live checks
 
+Screen block 6, 2026-10-17 (docs/research/screen-block-6.md): the debug app bundle on a
+ZTEST schedule passed the day break sun from a located sheet, the calendar filter's
+Escape, Locations' Return and Close, the call sheet save folder, every outside-change
+branch with Revert to Backup, copying strips between windows, the Breakdown Designer drag,
+the printed board's density, daylight saving on a placed location, category elements on
+strips, look A with Graphite and Ledger, Print Call Sheet, the Help menu and opening a
+template from the system. Four look bugs it found are fixed (decisions.md, entry 218).
+
 First run in a real window, 2026-10-11, macOS (debug build wrapped in a minimal app bundle
 so computer use could drive it), on a ZTEST schedule built from an invented script:
 - Opening a `.mtsc` file from macOS (`open -a`), the native File and Edit menus, the
