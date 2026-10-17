@@ -124,47 +124,13 @@ To look at it locally:
 cd site && python3 -m http.server 8000    # then open http://127.0.0.1:8000/
 ```
 
-### The family: Method Budget and Method Production
+### The family: the suite website's bar and band
 
-Method Budget (methodbudget.com) is the sister app, and methodproduction.com will be the
-suite's home (the plan: `../method-budget/docs/research/suite-site.md`). For now each
-product site links the other in its footer: ours says "Also: Method Budget" on the home
-page and the release notes page. The home page's footer also links methodproduction.com
-("Part of the Method Production Suite"), which is live.
-
-**For the owner, in the method-budget repository (not edited from here):** add the same
-line to its footer, in `site/index.html` and `site/releases/index.html`:
-
-```html
-<p class="family">Also: <a href="https://methodschedule.com">Method Schedule</a>, film and TV scheduling in the same open way.</p>
-```
-
-with `footer .family { color: var(--ink-soft); }` in its `site/assets/site.css`. Link it
-only once methodschedule.com is live.
-
-**The family strip, later.** Once methodproduction.com is live (and not before, so it
-never links to a parked page), every product site gets a slim, muted bar above its
-header. Its rules are already in `site/assets/site.css`, commented out under "family
-strip"; uncomment them and put this first in `<body>` of `index.html`,
-`releases/index.html` and `404.html` (the 404 page with root-relative links as usual),
-before the skip link:
-
-```html
-<nav class="family-strip" aria-label="Method Production apps">
-  <div class="wrap">
-    <a href="https://methodproduction.com">Part of Method Production</a>
-    <span class="more" aria-hidden="true">&middot;</span>
-    <span class="more">Method Schedule</span>
-    <span class="more" aria-hidden="true">&middot;</span>
-    <a class="more" href="https://methodbudget.com">Method Budget</a>
-  </div>
-</nav>
-```
-
-The current app is plain text, the others are links; on a phone it collapses to "Part of
-Method Production". The shared neutrals (paper, ink, rules, type, shadow) already carry
-Method Budget's names and values in `tokens.css`, so moving them into one shared tokens
-file is a cut and paste, leaving only the accent here.
+methodschedule.com is served by the suite website, which puts a suite bar above every page
+and a suite band at the bottom linking all four Method apps and methodproduction.com. Our
+own pages therefore carry no family line or strip of their own: the footer's "Part of the
+Method Production Suite" and "Also: Method Budget" lines were dropped on 2026-10-16 so the
+band isn't repeated directly above it.
 
 ### Pictures
 
