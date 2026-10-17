@@ -812,3 +812,48 @@ test('decision 219: fenced blocks kept as written for the notices; the board fil
   const css = readFileSync(new URL('../ui/styles.css', import.meta.url), 'utf8');
   assert.match(css, /\n\.board \{ outline: none; \}/, 'no width cap on the board');
 });
+
+// WCAG contrast for the Graphite and Ledger looks (issue #5). Paper's colors are checked by
+// `scripts/make-brand.py --contrast`; these two are read from styles.css the same way, so a look
+// that darkens or lightens one of its pairs fails here.
+function rgb(hex) {
+  const m = /^#([0-9a-f]{6})$/i.exec(hex.trim());
+  assert.ok(m, `expected a #rrggbb color, got ${hex}`);
+  return [0, 2, 4].map((i) => parseInt(m[1].slice(i, i + 2), 16) / 255);
+}
+
+// WCAG 2.1 relative luminance and contrast ratio (https://www.w3.org/TR/WCAG21/#dfn-contrast-ratio).
+function luminance([r, g, b]) {
+  const [R, G, B] = [r, g, b].map((c) => (c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4));
+  return 0.2126 * R + 0.7152 * G + 0.0722 * B;
+}
+
+function contrast(fg, bg) {
+  const [a, b] = [luminance(rgb(fg)), luminance(rgb(bg))].sort((x, y) => y - x);
+  return (a + 0.05) / (b + 0.05);
+}
+
+test('looks: Graphite and Ledger keep text on its surfaces at 4.5:1 or better', () => {
+  const css = readFileSync(new URL('../ui/styles.css', import.meta.url), 'utf8');
+  const pairs = [
+    ['--text', '--bg'],
+    ['--text', '--surface'],
+    ['--muted', '--surface'],
+    ['--break-text', '--break-bg'],
+  ];
+  for (const theme of ['graphite', 'ledger']) {
+    const block = css.slice(css.indexOf(`:root[data-theme="${theme}"] {`));
+    const vars = new Map(
+      [...block.slice(0, block.indexOf('\n}')).matchAll(/(--[\w-]+):\s*(#[0-9a-f]{3,8})\s*;/gi)].map((m) => [
+        m[1],
+        m[2],
+      ]),
+    );
+    for (const [fg, bg] of pairs) {
+      assert.ok(vars.has(fg), `${theme} defines ${fg}`);
+      assert.ok(vars.has(bg), `${theme} defines ${bg}`);
+      const ratio = contrast(vars.get(fg), vars.get(bg));
+      assert.ok(ratio >= 4.5, `${theme} ${fg} on ${bg} is ${ratio.toFixed(2)}:1, needs 4.5:1`);
+    }
+  }
+});
