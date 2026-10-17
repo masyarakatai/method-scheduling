@@ -49,16 +49,29 @@ pub enum DaylightSaving {
     /// The European Union: from the last Sunday of March to the last Sunday of October,
     /// switching at 1:00 UTC.
     Eu,
+    /// Australia (southern states): from the first Sunday of October to the first Sunday
+    /// of April, switching at 2:00 local standard time.
+    Australia,
+    /// New Zealand: from the last Sunday of September to the first Sunday of April,
+    /// switching at 2:00 local standard time.
+    NewZealand,
 }
 
 impl DaylightSaving {
-    pub const ALL: [DaylightSaving; 2] = [DaylightSaving::UsCanada, DaylightSaving::Eu];
+    pub const ALL: [DaylightSaving; 4] = [
+        DaylightSaving::UsCanada,
+        DaylightSaving::Eu,
+        DaylightSaving::Australia,
+        DaylightSaving::NewZealand,
+    ];
 
     /// The name the file and the tools use.
     pub fn name(self) -> &'static str {
         match self {
             DaylightSaving::UsCanada => "us_canada",
             DaylightSaving::Eu => "eu",
+            DaylightSaving::Australia => "australia",
+            DaylightSaving::NewZealand => "new_zealand",
         }
     }
 
@@ -67,6 +80,8 @@ impl DaylightSaving {
         match self {
             DaylightSaving::UsCanada => "US and Canada",
             DaylightSaving::Eu => "EU",
+            DaylightSaving::Australia => "Australia",
+            DaylightSaving::NewZealand => "New Zealand",
         }
     }
 
@@ -82,6 +97,10 @@ impl DaylightSaving {
         match self {
             DaylightSaving::UsCanada => (nth_sunday(year, 3, 2), nth_sunday(year, 11, 1)),
             DaylightSaving::Eu => (last_sunday(year, 3), last_sunday(year, 10)),
+            // Southern hemisphere: the year starts in daylight time, so the rule is read
+            // across the new year: on from October (September in New Zealand) to April.
+            DaylightSaving::Australia => (nth_sunday(year, 10, 1), nth_sunday(year, 4, 1)),
+            DaylightSaving::NewZealand => (last_sunday(year, 9), nth_sunday(year, 4, 1)),
         }
     }
 
@@ -91,6 +110,12 @@ impl DaylightSaving {
     /// one or the other: ahead from the date they go forward, not on the date they go back.
     pub fn in_effect(self, date: Date) -> bool {
         let (on, off) = self.switch_dates(date.ymd().0);
+        if off < on {
+            // Southern rules cross the new year: daylight time runs from the spring
+            // switch of this year to the autumn switch of the next, so a date is ahead
+            // either after October's date or before April's.
+            return date >= on || date < off;
+        }
         on <= date && date < off
     }
 }
@@ -330,6 +355,25 @@ mod tests {
         assert!(!us.in_effect(d("2026-11-01")));
         assert!(!eu.in_effect(d("2026-01-15")) && eu.in_effect(d("2026-07-15")));
         assert!(!eu.in_effect(d("2026-10-25")));
+        // The southern rules cross the new year: on from the spring switch to the autumn one.
+        let au = DaylightSaving::Australia;
+        let nz = DaylightSaving::NewZealand;
+        for (year, au_on, au_off, nz_on, nz_off) in [
+            (2024, "2024-10-06", "2024-04-07", "2024-09-29", "2024-04-07"),
+            (2025, "2025-10-05", "2025-04-06", "2025-09-28", "2025-04-06"),
+            (2026, "2026-10-04", "2026-04-05", "2026-09-27", "2026-04-05"),
+            (2027, "2027-10-03", "2027-04-04", "2027-09-26", "2027-04-04"),
+        ] {
+            assert_eq!(au.switch_dates(year), (d(au_on), d(au_off)), "{year}");
+            assert_eq!(nz.switch_dates(year), (d(nz_on), d(nz_off)), "{year}");
+        }
+        // Ahead over the southern summer, back in the middle of the year.
+        assert!(au.in_effect(d("2026-01-15")) && au.in_effect(d("2026-10-04")));
+        assert!(!au.in_effect(d("2026-04-05")) && !au.in_effect(d("2026-07-15")));
+        assert!(nz.in_effect(d("2026-01-15")) && nz.in_effect(d("2026-09-27")));
+        assert!(!nz.in_effect(d("2026-04-05")) && !nz.in_effect(d("2026-07-15")));
+        assert_eq!(DaylightSaving::from_name("Australia"), Some(au));
+        assert_eq!(DaylightSaving::from_name("new_zealand"), Some(nz));
         assert_eq!(DaylightSaving::from_name(" EU "), Some(eu));
         assert_eq!(DaylightSaving::from_name("us_canada"), Some(us));
         assert_eq!(DaylightSaving::from_name("none"), None);

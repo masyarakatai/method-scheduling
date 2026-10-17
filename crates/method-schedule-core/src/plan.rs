@@ -511,15 +511,17 @@ pub fn offset_text(minutes: i32) -> String {
 }
 
 /// A daylight saving rule as typed or stored: `none` (or nothing) for none, else a
-/// rule's name (`us_canada`, `eu`), ignoring case.
+/// rule's name (`us_canada`, `eu`, `australia`, `new_zealand`), ignoring case.
 pub fn parse_daylight_saving(text: &str) -> Result<Option<DaylightSaving>, String> {
     let t = text.trim();
     if t.is_empty() || t.eq_ignore_ascii_case("none") {
         return Ok(None);
     }
-    DaylightSaving::from_name(t)
-        .map(Some)
-        .ok_or_else(|| format!("{t:?} is not a daylight saving rule: none, us_canada or eu"))
+    DaylightSaving::from_name(t).map(Some).ok_or_else(|| {
+        format!(
+            "{t:?} is not a daylight saving rule: none, us_canada, eu, australia or new_zealand"
+        )
+    })
 }
 
 /// A clock time as typed, `6:30`, `06:30` or `18:45`, as minutes after midnight.

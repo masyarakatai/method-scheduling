@@ -473,7 +473,7 @@ pub struct LocationDto {
     pub latitude: String,
     pub longitude: String,
     pub utc_offset: String,
-    /// The daylight saving rule's name (`us_canada`, `eu`), empty for none (decision 193).
+    /// The daylight saving rule's name (`us_canada`, `eu`, `australia`, `new_zealand`), empty for none (decision 193).
     pub daylight_saving: String,
 }
 
@@ -518,7 +518,7 @@ pub fn locations_data(state: Doc) -> CmdResult<Vec<LocationDto>> {
 }
 
 /// Places `name` on the map from typed degrees and offset and a daylight saving rule
-/// (`us_canada`, `eu`, empty for none); both degrees empty takes it off. An empty offset
+/// (`us_canada`, `eu`, `australia`, `new_zealand`, empty for none); both degrees empty takes it off. An empty offset
 /// is the longitude's hour.
 pub fn place_location(
     s: &mut Schedule,
