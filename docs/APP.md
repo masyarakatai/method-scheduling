@@ -1291,8 +1291,8 @@ differs from the one last saved, so undoing back to the saved state is clean.
 | `timeline_data` | `sub_board`, `strip` (may be null) | `{sub_board, sub_board_name, long_day, days, focus}`: each day `{number, date, day (its day break), call, wrap, length, sun, entries: [{strip, kind, text, start, end, untimed, warnings}], warnings}`; `focus` the day holding `strip`; each day also `past_wrap` (what runs past its wrap, in words, empty when nothing does), `push` (those strips, empty on the last day) and `next` (decisions.md, entry 192) |
 | `push_past_wrap` | `sub_board`, `day`, `strips` (the day's `push` as previewed) | the view, with a notice: the strips moved to the start of the next day as one undo step (refused when the day changed since) |
 | `set_call_time`, `set_long_day` | `day`, `call` (`h:mm`, empty clears); `value` (`12`, `10:30`, empty: 12 hours) | the view |
-| `locations_data` | | `[{name, sheets, latitude, longitude, utc_offset, daylight_saving}]`, every sheet location; `daylight_saving` `us_canada`, `eu` or empty for none |
-| `set_location` | `name`, `latitude`, `longitude`, `utc_offset` (as typed; both degrees empty takes it off the map), `daylight_saving` (the select's value: `us_canada`, `eu` or empty; decisions.md, entry 193) | the view |
+| `locations_data` | | `[{name, sheets, latitude, longitude, utc_offset, daylight_saving}]`, every sheet location; `daylight_saving` `us_canada`, `eu`, `australia`, `new_zealand` or empty for none |
+| `set_location` | `name`, `latitude`, `longitude`, `utc_offset` (as typed; both degrees empty takes it off the map), `daylight_saving` (the select's value: `us_canada`, `eu`, `australia`, `new_zealand` or empty; decisions.md, entries 193 and 220) | the view |
 | `rest_data`, `set_turnaround` | `board`; `category`, `value` | `{turnarounds: [{category, name, minimum}], short, unchecked}`; the view |
 | `locks_data`, `lock_schedule`, `delete_lock`, `drift_data` | `board`; `board`, `name`; `name`; `name` | `[{name, made, scenes}]`; the view; the view; `{lock, actors: [{name, board_id, before, after, added, dropped, moved}], unchanged}` |
 | `pin_strips` | `strips`, `pinned` | the view, with a notice |
@@ -1594,8 +1594,8 @@ app's key equivalents (behavior note 19).
   strip or date; What Changed against a chosen backup; picking any file as a merge base;
   the changes a merge brings in shown per conflict
   pick side by side.
-- **Beyond the reference app**: daylight saving rules other than the US and Canada's and
-  the EU's (a location with none keeps one UTC offset; decisions.md, entry 193), and
+- **Beyond the reference app**: daylight saving rules other than the US and Canada's, the EU's,
+  Australia's south-east and New Zealand's (a location with none keeps one UTC offset; decisions.md, entry 193), and
   sending call sheets (it needs a service, BYD-03).
 - **Updates and releases**: the release and Apple signing secrets in CI, a public
   repository and a first published release (the updater and its key are in, entries 213

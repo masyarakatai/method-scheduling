@@ -32,7 +32,7 @@ Size: **S** a day or two, **M** about a week, **L** more than a week.
   extras beyond the reference app (BYD-01 to BYD-12), a local signed Mac release
   script with a draft-release workflow (decision 196), the sample production and the
   user guide in the Help menu (decisions 198 and 199) and crash recovery as tests
-  (decision 200). Decisions run to 219.
+  (decision 200). Decisions run to 220.
 - **Not yet**: a notarized build anyone can download, a live site, Windows and Linux run
   by hand, M1's new UI seen in the real window (screen block 6), and the rows left below.
 
@@ -124,7 +124,7 @@ kept or offered as a pick, in tests and in a live run.
 |---|---|---|
 | Call sheets beyond the printed sheet (decision 207): crew calls, an advance schedule for the next days, a map; distribution stays out (BYD-03) | M | CALLSHEET.md, BYD-02 |
 | Try it in your browser: the engine as WebAssembly at `/try/` with an invented schedule | L | WEBSITE.md "Try it in your browser, later" |
-| Daylight saving rules beyond the US and Canada's and the EU's (others keep a typed offset today) | S | D72, D193, BYD-08 |
+| Daylight saving rules beyond the US and Canada's, the EU's, Australia's south-east and New Zealand's (others keep a typed offset today) | S | D72, D193, D220, BYD-08 |
 | Per-person call times, feeding the rest checks | M | D71, D73, BYD-09 |
 | Schedule lock reports: drift per actor as a printed report and a spreadsheet | S | D74, BYD-05 |
 | Auto-schedule improvements: more grouping rules, a cost to compare orders (a long day's tail moves to the next day by hand since D192) | M | D75, BYD-06 |

@@ -5390,3 +5390,23 @@ The owner's answers to screen block 6's three questions (docs/research/screen-bl
 - Tests: page tests for the fenced blocks and the board's width. The new window from the
   Finder joins the next screen block (it needs the real app).
 
+## 220. Daylight saving for Australia's south-east and New Zealand (2026-10-17)
+
+The first outside contribution: issue #7, a good first issue, sent as pull request #16
+(with #15, the Graphite and Ledger contrast test for issue #5). Reviewed, rebased onto
+main with its author kept, and finished here.
+
+- **The rules** (the contribution): `australia`, from the first Sunday of October to the
+  first Sunday of April, and `new_zealand`, from the last Sunday of September to the first
+  Sunday of April, both switching at 2:00 local standard time. They cross the new year, so
+  a date is ahead after the spring switch or before the autumn one
+  (`DaylightSaving::in_effect`); switch dates tested for 2024 to 2027.
+- **Australia means its south-east**: New South Wales, Victoria, the ACT, Tasmania and South
+  Australia. Queensland, the Northern Territory and Western Australia keep one offset all
+  year, so a location there takes no rule. The Locations menu says "Australia
+  (south-east)"; the stored name stays `australia`.
+- **Everywhere the names live** (this follow-up): the MCP `set_location` schema offers both,
+  the command line's help and the file reader's message name them, and FORMAT.md, MCP.md
+  and APP.md list them. The file format change is additive: older files read as before.
+- Tests: the contribution's switch-date tests; a format round trip for both rules.
+

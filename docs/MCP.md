@@ -724,7 +724,7 @@ spanning days), `groups`, and `before` and `after` counts (`shoot_days`, `cast_d
 
 **`locations`** `{path}`: every sheet location with its sheet count and, when on the
 map, `latitude`, `longitude` and `utc_offset` as text and `daylight_saving` (`none`,
-`us_canada` or `eu`; decision 193).
+`us_canada`, `eu`, `australia` or `new_zealand`; decisions 193 and 220).
 
 **`revise_script`** `{path, revision, script, tags?, lines_per_page?}`: merges a revised
 draft (see decisions.md, BYD-01; `lines_per_page` as for `import_script`): `matched`, `changed` (`sheet`, `by_heading`, `fields` with
@@ -738,7 +738,8 @@ or null to clear.
 daylight_saving?, remove?}`: degrees as decimals (`34.0522`, `-118.2437`) or with a
 compass letter (`118.2437W`), up to six decimals; `utc_offset` as `-7`, `+05:30` or
 `UTC-08:00` (default: the longitude's hour), the standard offset when there is a daylight
-saving rule; `daylight_saving` one of `none`, `us_canada` or `eu` (left out, the
+saving rule; `daylight_saving` one of `none`, `us_canada`, `eu`, `australia` (Australia's
+south-east) or `new_zealand` (left out, the
 location's rule stays). `remove` takes the name off the map.
 
 **`set_turnaround`** `{path, revision, category?, minimum?, long_day?}`: a category's

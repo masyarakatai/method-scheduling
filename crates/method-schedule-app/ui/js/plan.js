@@ -236,7 +236,7 @@ export function planCommands(ctx) {
           el('option', { text: 'None', attrs: { value: '' } }),
           el('option', { text: 'US and Canada', attrs: { value: 'us_canada' } }),
           el('option', { text: 'EU', attrs: { value: 'eu' } }),
-          el('option', { text: 'Australia', attrs: { value: 'australia' } }),
+          el('option', { text: 'Australia (south-east)', attrs: { value: 'australia' } }),
           el('option', { text: 'New Zealand', attrs: { value: 'new_zealand' } }),
         );
         dst.value = l.daylight_saving;

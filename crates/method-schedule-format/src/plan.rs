@@ -176,7 +176,7 @@ pub(crate) fn in_plan(f: Option<FilePlan>) -> Result<Plan, FormatError> {
                     .find(|r| r.name() == t)
                     .ok_or_else(|| {
                         bad(format!(
-                            "location {name:?}: daylight saving {t:?} is not us_canada or eu"
+                            "location {name:?}: daylight saving {t:?} is not us_canada, eu, australia or new_zealand"
                         ))
                     })?,
             ),

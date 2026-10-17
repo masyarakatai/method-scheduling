@@ -2846,6 +2846,17 @@ pub(crate) mod tests {
             from_str(&eu).unwrap().plan.locations[0].daylight_saving,
             Some(method_schedule_core::solar::DaylightSaving::Eu)
         );
+        // The southern rules (decision 220) read and write by their names.
+        for rule in [
+            method_schedule_core::solar::DaylightSaving::Australia,
+            method_schedule_core::solar::DaylightSaving::NewZealand,
+        ] {
+            let mut south = dst.clone();
+            south.plan.locations[0].daylight_saving = Some(rule);
+            let text = to_string(&south);
+            assert!(text.contains(&format!("\"daylight_saving\": \"{}\"", rule.name())));
+            assert_eq!(from_str(&text).unwrap(), south);
+        }
     }
 
     #[test]

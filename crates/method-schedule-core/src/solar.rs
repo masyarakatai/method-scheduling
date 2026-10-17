@@ -49,8 +49,10 @@ pub enum DaylightSaving {
     /// The European Union: from the last Sunday of March to the last Sunday of October,
     /// switching at 1:00 UTC.
     Eu,
-    /// Australia (southern states): from the first Sunday of October to the first Sunday
-    /// of April, switching at 2:00 local standard time.
+    /// Australia's south-east (New South Wales, Victoria, the ACT, Tasmania and South
+    /// Australia): from the first Sunday of October to the first Sunday of April, switching
+    /// at 2:00 local standard time. Queensland, the Northern Territory and Western Australia
+    /// keep one offset all year: no rule (decision 220).
     Australia,
     /// New Zealand: from the last Sunday of September to the first Sunday of April,
     /// switching at 2:00 local standard time.
@@ -80,7 +82,7 @@ impl DaylightSaving {
         match self {
             DaylightSaving::UsCanada => "US and Canada",
             DaylightSaving::Eu => "EU",
-            DaylightSaving::Australia => "Australia",
+            DaylightSaving::Australia => "Australia (south-east)",
             DaylightSaving::NewZealand => "New Zealand",
         }
     }
